@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Income, Expenses & Savings Tracker</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { height: 100%; margin:0; }
+
+  :root {
+    --accent: #111827;
+    --line: #111827;
+    --text: #111827;
+    --bg: #ffffff;
+    --panel: #ffffff;
+
+    --badge-border: #FFC000;
+    --button-glow: rgba(173,216,230,0.8);
+
+    --title-font-size: 20px;
+    --th-font-size: 14px;
+    --td-font-size: 14px;
+    --icon-size: 18px;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  @media (max-width: 1024px) { body { padding-left: 6%; padding-right: 6%; } }
+  @media (max-width: 640px)  { body { padding-left: 2%; padding-right: 2%; } }
+
+  /* Top bar */
+  .topbar {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: space-between; align-items: center;
+    padding: 10px 0;
+    border-bottom: 3px solid var(--line);
+    background: var(--panel);
+    color: var(--text);
+    position: sticky; top: 0; z-index: 10;
+    min-width: 0;
+  }
+  .nav-left, .nav-right { display: flex; gap: 8px; flex-wrap: wrap; min-width: 0; }
+
+  .nav-btn, .settings-btn, .btn, .icon-btn {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 3px solid var(--line);
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+    box-shadow: 0 0 12px var(--button-glow);
+    min-width: 0;
+  }
+  .nav-btn.active { box-shadow: 0 0 0 3px var(--button-glow); }
+  .nav-btn:hover, .settings-btn:hover, .btn:hover, .icon-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 3px var(--button-glow), 0 6px 18px -6px rgba(0,0,0,0.12);
+  }
+  .icon-btn {
+    width: calc(var(--icon-size) + 10px);
+    height: calc(var(--icon-size) + 10px);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+
+  /* Title */
+  .page-title {
+    text-align: center;
+    margin: 5% 0;
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--text);
+  }
+
+  /* Cards layout */
+  .cards { display: grid; grid-template-columns: 1fr; gap: 16px; padding-bottom: 24px; min-width: 0; }
+  .card {
+    background: var(--panel);
+    border: 3px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    color: var(--text);
+    min-width: 0;
+  }
+  .card-newentry {
+    background: #E2EFDA;
+    border: 3px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    color: var(--text);
+    min-width: 0;
+  }
+
+  /* Card header with actions row */
+  .card-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+    min-width: 0;
+  }
+  @media (max-width: 640px) { .card-header { grid-template-columns: 1fr; } }
+
+  .card-title {
+    font-size: var(--title-font-size);
+    font-weight: 700;
+    display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    min-width: 0;
+  }
+  .card-actions { display: inline-flex; gap: 8px; flex-wrap: wrap; align-items: center; min-width: 0; }
+
+  /* Expenses actions: badges + load prev month in one row */
+  .expenses-actions {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  /* Badges */
+  .chip {
+    border: 3px solid var(--badge-border);
+    background: #fff;
+    color: var(--text);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    transition: transform .12s ease, box-shadow .12s ease;
+    box-shadow: 0 0 10px var(--button-glow);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .chip:hover { transform: scale(1.03); }
+  .chip strong { font-weight: 700; }
+
+  /* Inputs and form grids */
+  .row, .row-2, .row-3, .modal-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    min-width: 0;
+  }
+  .modal-form .full { grid-column: 1 / -1; }
+  .input, select, input[type="text"], input[type="date"] {
+    width: 100%; padding: 10px; border-radius: 10px; border: 3px solid var(--line); background: #fff; color: var(--text);
+    min-width: 0;
+  }
+
+  /* Tables: dynamic amount column */
+  table { width: 100%; border-collapse: collapse; table-layout: auto; }
+  th, td { padding: 10px; border-bottom: 1px solid rgba(17,24,39,0.2); text-align: left; color: var(--text); vertical-align: top; }
+  th { font-size: var(--th-font-size); font-weight: 700; }
+  td { font-size: var(--td-font-size); }
+  .title-wrap { white-space: normal; word-wrap: break-word; word-break: break-word; }
+  .row-paid { background: rgba(17,24,39,0.08); }
+  .amount-cell { white-space: nowrap; text-align: right; }
+  .checkbox-cell { width: 40px; text-align: center; }
+
+  /* Three cards section */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    min-width: 0;
+  }
+
+  /* Savings table scroll wrapper */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll table {
+    min-width: 800px; /* force horizontal scrolling when card shrinks */
+  }
+
+  /* Context menu */
+  .context-menu {
+    position: fixed; background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 6px;
+    display: none; z-index: 20; min-width: 200px; color: var(--text);
+  }
+  .context-menu button {
+    width: 100%; text-align: left; padding: 10px; border: 3px solid var(--line);
+    background: #fff; color: var(--text); cursor: pointer; border-radius: 10px; margin-bottom: 6px;
+    box-shadow: 0 0 12px var(--button-glow);
+  }
+  .context-menu button:hover { transform: scale(1.03); }
+
+  /* Modals: centered with margin on large screens, scroll inside */
+  .modal-backdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,.25);
+    display: none; align-items: flex-start; justify-content: center; z-index: 30;
+    overflow: auto; -webkit-overflow-scrolling: touch;
+    padding: 40px 20px; /* breathing room around modal on big screens */
+  }
+  .modal {
+    background: #fff; border: 3px solid var(--line); border-radius: 14px;
+    width: 90%; max-width: 800px; margin: 0 auto;
+    padding: 16px; color: var(--text);
+    max-height: 90vh; overflow: auto; -webkit-overflow-scrolling: touch;
+  }
+  .modal h3 { margin: 0 0 12px; font-size: 18px; color: var(--text); }
+  .modal .section { margin-bottom: 12px; }
+  .modal .section, .modal-form { min-height: 0; }
+
+  /* Chrome shrink fix */
+  .topbar, .nav-left, .nav-right, .cards, .grid-3, .card, .card-header,
+  .row, .row-2, .row-3, .modal-form { min-width: 0; }
+  .nav-btn, .settings-btn, .btn, .icon-btn,
+  .input, select, input[type="text"], input[type="date"] { min-width: 0; }
+
+  /* Force full stacking when browser is ~half width or narrower */
+  @media (max-width: 1200px) {
+    .grid-3 { grid-template-columns: 1fr !important; }
+    .cards  { grid-template-columns: 1fr !important; }
+  }
+
+  /* Ultra-small devices: hard collapse to single column */
+  @media (max-width: 480px) {
+    .row, .row-2, .row-3, .modal-form {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+    .cards {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+    }
+    .topbar {
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+    .nav-btn, .settings-btn, .btn, .icon-btn,
+    .input, select, input[type="text"], input[type="date"] {
+      width: 100% !important;
+    }
+    body { padding-left: 2% !important; padding-right: 2% !important; }
+    .modal {
+      width: 100% !important; max-width: 100% !important; padding: 12px !important;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="nav-left" id="navLeft">
+      <button class="nav-btn active" data-url="#" data-label="Home">Home</button>
+    </div>
+    <div class="nav-right">
+      <button class="settings-btn" id="openSettings">Settings</button>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <h1 class="page-title">Income, Expenses & Savings Tracker</h1>
+
+  <div class="cards">
+    <!-- New Entry -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">New Entry</div>
+        <div class="card-actions">
+          <span class="chip">Autosave: <span id="autosaveState">unbound</span></span>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom:12px">
+        <select id="entryType" class="input">
+          <option value="income">Income</option>
+          <option value="expenses">Expenses</option>
+          <option value="personal">Personal</option>
+        </select>
+        <input id="entryTitle" class="input" type="text" placeholder="Title" />
+        <input id="entryDate" class="input" type="date" />
+        <input id="entryAmount" class="input" type="text" placeholder="Amount" />
+      </div>
+      <div style="display:flex;justify-content:flex-end">
+        <button class="btn" id="addEntryBtn" title="Add">Add</button>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Filter</div>
+      </div>
+      <div class="row-2">
+        <select id="filterMonth" class="input"></select>
+        <select id="filterYear" class="input"></select>
+      </div>
+    </div>
+
+    <!-- Income / Expenses / Personal -->
+    <div class="grid-3">
+      <!-- Income -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Income</div>
+          <div class="card-actions">
+            <span class="chip">Total: <strong id="incomeSum">0.00</strong></span>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Title</th><th class="amount-cell">Amount</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="incomeTable"></tbody>
+        </table>
+      </div>
+
+      <!-- Expenses -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Expenses</div>
+          <div class="card-actions expenses-actions">
+            <span class="chip">Total: <strong id="expensesSum">0.00</strong></span>
+            <span class="chip">Paid: <strong id="checkedTotal">0.00</strong></span>
+            <button class="icon-btn" id="loadPrevMonth" title="Load previous month">⟲</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th class="checkbox-cell"></th><th>Title</th><th class="amount-cell">Amount</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="expensesTable"></tbody>
+        </table>
+      </div>
+
+      <!-- Personal -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Personal</div>
+          <div class="card-actions">
+            <span class="chip">Total: <strong id="personalSum">0.00</strong></span>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Title</th><th class="amount-cell">Amount</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="personalTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Savings matrix (card shrinks, table scrolls horizontally, no Total column) -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Savings <span class="chip" id="bankAccountBadge">Bank Account: <strong>0.00</strong></span><span class="chip" id="bankAccountFutureBadge">Forecast: <strong>0.00</strong></span>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table id="savingsMatrix">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
+              <th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th><th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="savingsMatrixBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context menu -->
+  <div class="context-menu" id="navContext">
+    <button data-action="edit">Edit</button>
+    <button data-action="delete">Delete</button>
+  </div>
+
+  <!-- Settings modal -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3>Settings</h3>
+        <button class="icon-btn" id="closeSettings" title="Close">✕</button>
+      </div>
+
+      <div class="section">
+        <strong>File binding:</strong>
+        <div class="modal-form" style="margin-top:8px">
+          <button class="btn" id="bindFileBtn">Load JSON file</button>
+          <button class="btn" id="reloadFileBtn">Reload from file</button>
+          <span class="chip">Status: <span id="fileStatus">not bound</span></span>
+        </div>
+        <p style="opacity:.8;margin-top:6px">
+          Bind tracker.json once. If empty, the app initializes the schema. Autosave updates without wiping existing content.
+        </p>
+      </div>
+
+      <div class="section">
+        <strong>Navigation:</strong>
+        <div class="modal-form" style="margin-top:8px">
+          <input id="newNavLabel" class="input" placeholder="Button label (e.g., Reports)" />
+          <input id="newNavUrl" class="input" placeholder="URL (e.g., https://example.com/reports)" />
+          <div class="full" style="display:flex;gap:8px;align-items:center;">
+            <button class="btn" id="addNavBtn">Add Nav Button</button>
+            <span class="chip">Right-click a nav button to edit or delete</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <strong>UI sizes:</strong>
+        <div class="modal-form" style="margin-top:8px">
+          <div>
+            <label>Card title size</label>
+            <input id="fsTitle" class="input" type="number" min="12" max="36" step="1" value="20" />
+          </div>
+          <div>
+            <label>Table header size</label>
+            <input id="fsTh" class="input" type="number" min="10" max="24" step="1" value="14" />
+          </div>
+          <div>
+            <label>Table cell size</label>
+            <input id="fsTd" class="input" type="number" min="10" max="24" step="1" value="14" />
+          </div>
+          <div>
+            <label>Icon size</label>
+            <input id="fsIcon" class="input" type="number" min="12" max="32" step="1" value="18" />
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:8px">
+          <button class="btn" id="applyUiSizes">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit entry modal -->
+  <div class="modal-backdrop" id="editModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3>Edit entry</h3>
+        <button class="icon-btn" id="closeEditModal" title="Close">✕</button>
+      </div>
+      <div class="modal-form">
+        <div>
+          <label>Type</label>
+          <select id="editType" class="input">
+            <option value="income">Income</option>
+            <option value="expenses">Expenses</option>
+            <option value="personal">Personal</option>
+          </select>
+        </div>
+        <div>
+          <label>Date</label>
+          <input id="editDate" class="input" type="date" />
+        </div>
+        <div class="full">
+          <label>Title</label>
+          <input id="editTitle" class="input" type="text" />
+        </div>
+        <div>
+          <label>Amount</label>
+          <input id="editAmount" class="input" type="text" />
+        </div>
+        <div id="editPaidWrap" style="display:flex;align-items:center;gap:8px">
+          <label>Paid (Expenses)</label>
+          <input id="editPaid" type="checkbox" />
+        </div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
+        <button class="btn" id="saveEditBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ==== IndexedDB for file handle ==== */
+/* ==== IndexedDB for file handle ==== */
+const DB_NAME = 'tracker-db';
+const DB_STORE = 'file-handles';
+
+function idbOpen() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(DB_STORE)) db.createObjectStore(DB_STORE);
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+async function idbGet(key) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(DB_STORE, 'readonly'); const store = tx.objectStore(DB_STORE);
+    const req = store.get(key);
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+async function idbSet(key, value) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(DB_STORE, 'readwrite'); const store = tx.objectStore(DB_STORE);
+    const req = store.put(value, key);
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(req.error);
+  });
+}
+
+/* ==== Data model ==== */
+const today = new Date();
+const monthNames = [
+  'January','February','March','April','May','June',
+  'July','August','September','October','November','December'
+];
+function pad(n){ return n.toString().padStart(2,'0'); }
+function ymdFromYearMonth(y,m,day=14){ return `${y}-${pad(m)}-${pad(day)}`; }
+
+const defaultData = {
+  version: 1,
+  ui: { fontSizes: { title: 20, th: 14, td: 14, icon: 18 } },
+  nav: [{ label: 'Home', url: '#', id: 'home' }],
+  filter: { month: today.getMonth()+1, year: today.getFullYear() },
+  entries: { income: [], expenses: [], personal: [] },
+  events: [],                    // keep for shared schema with Calendar
+  vacationAllowance: {},         // keep for shared schema with Calendar
+  meta: { notes: '' }
+};
+let data = structuredClone ? structuredClone(defaultData) : JSON.parse(JSON.stringify(defaultData));
+let editContext = null;
+let fileHandle = null;
+let autosaveEnabled = false;
+
+/* ==== Autosave indicator ==== */
+async function updateAutosaveState() {
+  const a = document.getElementById('autosaveState');
+  if (a) a.textContent = autosaveEnabled ? 'bound' : 'unbound';
+  const fs = document.getElementById('fileStatus');
+  if (fs) fs.textContent = autosaveEnabled ? 'bound' : 'not bound';
+}
+
+/* ==== Merge helpers (safe, shared) ==== */
+function deepMerge(tgt, src) {
+  Object.keys(src || {}).forEach(k => {
+    const sv = src[k];
+    if (sv && typeof sv === 'object' && !Array.isArray(sv)) {
+      tgt[k] ||= {};
+      deepMerge(tgt[k], sv);
+    } else {
+      tgt[k] = sv;
+    }
+  });
+}
+function ensureCoreStructures(obj) {
+  obj.ui ||= defaultData.ui;
+  obj.nav ||= [{label:'Home',url:'#',id:'home'}];
+  obj.filter ||= { month: today.getMonth()+1, year: today.getFullYear() };
+
+  obj.entries ||= {};
+  obj.entries.income ||= [];
+  obj.entries.expenses ||= [];
+  obj.entries.personal ||= [];
+
+  // shared schema fields with Calendar
+  obj.events ||= [];
+  obj.vacationAllowance ||= {};
+
+  obj.meta ||= { notes: '' };
+  return obj;
+}
+async function writeFile(obj) {
+  const writable = await fileHandle.createWritable();
+  await writable.write(JSON.stringify(obj, null, 2));
+  await writable.close();
+}
+
+/* ==== File binding and I/O (tracker-compatible API) ==== */
+async function bindFilePicker() {
+  try {
+    const [fh] = await window.showOpenFilePicker({
+      types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+      multiple: false
+    });
+    fileHandle = fh;
+    await idbSet('trackerFileHandle', fileHandle);
+    autosaveEnabled = true;
+    await reloadFromFile();      // use the tracker-compatible wrapper below
+    await updateAutosaveState();
+  } catch (e) { console.warn('File bind canceled/failed', e); }
+}
+
+/* Reload latest file, hydrate into `data`, render */
+async function reloadFromFile() {
+  if (!fileHandle) {
+    const stored = await idbGet('trackerFileHandle');
+    if (stored) fileHandle = stored;
+  }
+  if (!fileHandle) { alert('No file bound yet. Use "Load JSON file".'); return; }
+
+  try {
+    const file = await fileHandle.getFile();
+    const text = await file.text();
+    let parsed;
+    try { parsed = JSON.parse(text || '{}'); } catch { parsed = {}; }
+    if (!parsed || Object.keys(parsed).length === 0) {
+      parsed = structuredClone ? structuredClone(defaultData) : JSON.parse(JSON.stringify(defaultData));
+      await writeFile(parsed);
+    }
+    const merged = ensureCoreStructures(structuredClone ? structuredClone(defaultData) : JSON.parse(JSON.stringify(defaultData)));
+    deepMerge(merged, parsed);
+    data = merged;
+
+    if (typeof hydrateUI === 'function') hydrateUI();
+    if (typeof renderAll === 'function') renderAll();
+    await updateAutosaveState();
+  } catch (e) {
+    console.error('Reload failed', e);
+    alert('Failed to reload tracker.json. You may need to re-bind the file.');
+  }
+}
+
+/* Read-modify-write with safe merge so Calendar & Tracker never overwrite each other */
+async function saveToFile() {
+  if (!autosaveEnabled || !fileHandle) return;
+  try {
+    // Always base your write on the latest file contents
+    const file = await fileHandle.getFile();
+    const currentText = await file.text().catch(()=> '{}');
+    let current = {};
+    try { current = JSON.parse(currentText || '{}'); } catch { current = {}; }
+    current = ensureCoreStructures(current);
+
+    const merged = (structuredClone ? structuredClone(current) : JSON.parse(JSON.stringify(current)));
+    deepMerge(merged, data); // merge local page changes into latest file state
+
+    await writeFile(merged);
+  } catch (e) {
+    console.error('Autosave failed', e);
+    autosaveEnabled = false;
+    await updateAutosaveState();
+  }
+}
+
+/* Try auto load on startup */
+async function tryAutoLoad() {
+  const stored = await idbGet('trackerFileHandle');
+  if (stored) {
+    fileHandle = stored;
+    autosaveEnabled = true;
+    await reloadFromFile();
+  } else {
+    if (typeof hydrateUI === 'function') hydrateUI();
+    if (typeof renderAll === 'function') renderAll();
+  }
+}
+
+
+/* ==== UI sizes ==== */
+function hydrateUI() {
+  const fs = data.ui?.fontSizes || defaultData.ui.fontSizes;
+  const t = document.getElementById('fsTitle'); if (t) t.value = fs.title;
+  const th = document.getElementById('fsTh'); if (th) th.value = fs.th;
+  const td = document.getElementById('fsTd'); if (td) td.value = fs.td;
+  const ic = document.getElementById('fsIcon'); if (ic) ic.value = fs.icon;
+  applyFontSizes(fs);
+}
+function applyFontSizes(fs) {
+  const r = document.documentElement;
+  r.style.setProperty('--title-font-size', fs.title + 'px');
+  r.style.setProperty('--th-font-size', fs.th + 'px');
+  r.style.setProperty('--td-font-size', fs.td + 'px');
+  r.style.setProperty('--icon-size', fs.icon + 'px');
+}
+document.getElementById('applyUiSizes')?.addEventListener('click', () => {
+  const fs = {
+    title: Number(document.getElementById('fsTitle')?.value || 20),
+    th: Number(document.getElementById('fsTh')?.value || 14),
+    td: Number(document.getElementById('fsTd')?.value || 14),
+    icon: Number(document.getElementById('fsIcon')?.value || 18)
+  };
+  data.ui.fontSizes = fs;
+  applyFontSizes(fs);
+  saveToFile();
+});
+
+/* ==== Navigation ==== */
+function renderNav() {
+  const wrap = document.getElementById('navLeft');
+  wrap.innerHTML = '';
+
+  data.nav.forEach(btn => {
+    const el = document.createElement('button');
+    el.className = 'nav-btn' + (btn.label === 'Home' ? ' active' : '');
+    el.textContent = btn.label;
+    el.dataset.url = btn.url;
+    el.dataset.id = btn.id || crypto.randomUUID();
+    el.dataset.label = btn.label;
+
+    el.addEventListener('click', () => {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      if (btn.url && btn.url !== '#') {
+        // load in the same tab
+        window.location.href = btn.url;
+      }
+    });
+
+    el.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      openNavContext(e.clientX, e.clientY, el.dataset.id);
+    });
+
+    wrap.appendChild(el);
+  });
+
+  // 🔧 Add button at the end
+  const addBtn = document.createElement('button');
+  addBtn.id = 'addNavBtn';
+  addBtn.className = 'nav-btn add-btn';
+  addBtn.textContent = '+';
+  wrap.appendChild(addBtn);
+
+  addBtn.addEventListener('click', () => {
+    const label = prompt('New button label:');
+    if (!label) return;
+    const url = prompt('Button URL (e.g. tracker.html or https://example.com):', '#') || '#';
+    const id = crypto.randomUUID();
+
+    data.nav.push({ label, url, id });
+    renderNav();
+    saveToFile();
+  });
+}
+
+function openNavContext(x, y, id) {
+  const menu = document.getElementById('navContext');
+  menu.style.left = x + 'px';
+  menu.style.top = y + 'px';
+  menu.style.display = 'block';
+  menu.dataset.targetId = id;
+}
+function closeNavContext() {
+  const menu = document.getElementById('navContext');
+  menu.style.display = 'none';
+  delete menu.dataset.targetId;
+}
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('navContext');
+  if (menu.style.display === 'block' && !menu.contains(e.target)) closeNavContext();
+});
+document.getElementById('navContext').addEventListener('click', (e) => {
+  const action = e.target.dataset.action;
+  const id = e.currentTarget.dataset.targetId;
+  if (!action || !id) return;
+  const idx = data.nav.findIndex(n => (n.id || n.label) === id);
+  if (idx === -1) return;
+  if (action === 'edit') {
+    const cur = data.nav[idx];
+    const label = prompt('Label:', cur.label) ?? cur.label;
+    const url = prompt('URL:', cur.url) ?? cur.url;
+    data.nav[idx] = { ...cur, label, url };
+  } else if (action === 'delete') {
+    if (confirm('Delete this nav button?')) {
+      data.nav.splice(idx, 1);
+      if (!data.nav.find(n=>n.label==='Home')) data.nav.unshift({label:'Home',url:'#',id:'home'});
+    }
+  }
+  closeNavContext();
+  renderNav();
+  saveToFile();
+});
+
+/* ==== Filters ==== */
+function renderFilters() {
+  const mSel = document.getElementById('filterMonth');
+  const ySel = document.getElementById('filterYear');
+
+  mSel.innerHTML = '';
+  monthNames.forEach((mn, idx) => {
+  const opt = document.createElement('option');
+  opt.value = idx+1;
+  opt.textContent = mn;   // now shows long names
+  if (idx+1 === data.filter.month) opt.selected = true;
+  mSel.appendChild(opt);
+});
+
+
+  ySel.innerHTML = '';
+  const years = computeYearsRange();
+  years.forEach(y=>{
+    const opt = document.createElement('option');
+    opt.value = y; opt.textContent = y;
+    if (y === data.filter.year) opt.selected = true;
+    ySel.appendChild(opt);
+  });
+
+  mSel.onchange = () => {
+    data.filter.month = Number(mSel.value);
+    document.getElementById('entryDate').value = ymdFromYearMonth(data.filter.year, data.filter.month, 14);
+    renderAll(); saveToFile();
+  };
+  ySel.onchange = () => {
+    data.filter.year = Number(ySel.value);
+    document.getElementById('entryDate').value = ymdFromYearMonth(data.filter.year, data.filter.month, 14);
+    renderAll(); saveToFile();
+  };
+}
+function computeYearsRange() {
+  const cur = today.getFullYear();
+  const yearsFromData = [
+    ...data.entries.income.map(e=>new Date(e.date).getFullYear()),
+    ...data.entries.expenses.map(e=>new Date(e.date).getFullYear()),
+    ...data.entries.personal.map(e=>new Date(e.date).getFullYear()),
+  ];
+  const minY = yearsFromData.length ? Math.min(...yearsFromData, cur) : cur-5;
+  const maxY = yearsFromData.length ? Math.max(...yearsFromData, cur) : cur+5;
+  const out = [];
+  for (let y=minY; y<=maxY; y++) out.push(y);
+  return out;
+}
+
+
+/* ==== CRUD ==== */
+function addEntry() {
+  const type = document.getElementById('entryType').value;
+  const title = document.getElementById('entryTitle').value.trim();
+  const date = document.getElementById('entryDate').value || ymdFromYearMonth(data.filter.year, data.filter.month, 14);
+  const amountStr = document.getElementById('entryAmount').value.trim();
+  const amount = parseFloat(amountStr);
+  if (!title || isNaN(amount)) { alert('Please provide Title and a numeric Amount.'); return; }
+  const entry = { id: crypto.randomUUID(), title, date, amount };
+  if (type === 'expenses') entry.paid = false;
+  data.entries[type].push(entry);
+  renderAll();
+  saveToFile();
+  document.getElementById('entryTitle').value = '';
+  document.getElementById('entryAmount').value = '';
+}
+document.getElementById('addEntryBtn').addEventListener('click', addEntry);
+
+function withinFilter(e) {
+  const d = new Date(e.date);
+  return d.getMonth()+1 === data.filter.month && d.getFullYear() === data.filter.year;
+}
+function renderTable(type, tbodyId, sumId, hasPaid=false) {
+  const tbody = document.getElementById(tbodyId);
+  const rows = data.entries[type].filter(withinFilter);
+  tbody.innerHTML = '';
+  let sum = 0;
+  rows.forEach(e=>{
+    sum += Number(e.amount) || 0;
+    const tr = document.createElement('tr');
+    if (hasPaid && e.paid) tr.classList.add('row-paid');
+
+    if (hasPaid) {
+      const tdChk = document.createElement('td'); tdChk.className='checkbox-cell';
+      const cb = document.createElement('input'); cb.type='checkbox'; cb.checked = !!e.paid;
+      cb.addEventListener('change', () => {
+        e.paid = cb.checked;
+        renderExpensesCheckedTotal();
+        renderTable('expenses','expensesTable','expensesSum',true);
+        renderSavings();
+        saveToFile();
+      });
+      tdChk.appendChild(cb);
+      tr.appendChild(tdChk);
+    }
+
+    const tdTitle = document.createElement('td'); tdTitle.className = 'title-wrap'; tdTitle.textContent = e.title;
+    const tdAmt = document.createElement('td'); tdAmt.className = 'amount-cell'; tdAmt.textContent = (Number(e.amount)||0).toFixed(2);
+
+    const tdActions = document.createElement('td');
+    const editBtn = document.createElement('button'); editBtn.className='icon-btn'; editBtn.title='Edit'; editBtn.textContent='✎';
+    const delBtn = document.createElement('button'); delBtn.className='icon-btn'; delBtn.title='Delete'; delBtn.textContent='🗑';
+
+    editBtn.addEventListener('click', () => openEditModal(type, e));
+    delBtn.addEventListener('click', () => {
+      if (!confirm('Delete this item?')) return;
+      data.entries[type] = data.entries[type].filter(x=>x.id !== e.id);
+      renderAll(); saveToFile();
+    });
+
+    tdActions.appendChild(editBtn);
+    tdActions.appendChild(delBtn);
+
+    tr.appendChild(tdTitle);
+    tr.appendChild(tdAmt);
+    tr.appendChild(tdActions);
+    tbody.appendChild(tr);
+  });
+  document.getElementById(sumId).textContent = sum.toFixed(2);
+}
+function renderExpensesCheckedTotal() {
+  const rows = data.entries.expenses.filter(withinFilter).filter(e=>e.paid);
+  const total = rows.reduce((a,b)=>a+(Number(b.amount)||0),0);
+  document.getElementById('checkedTotal').textContent = total.toFixed(2);
+}
+function loadPrevMonthExpenses() {
+  const m = data.filter.month, y = data.filter.year;
+  const prev = new Date(y, m-2, 1);
+  const copy = data.entries.expenses.filter(e=>{
+    const d = new Date(e.date);
+    return d.getMonth()+1 === (prev.getMonth()+1) && d.getFullYear() === prev.getFullYear();
+  }).map(e=>({ id: crypto.randomUUID(), title: e.title, date: y+'-'+pad(m)+'-'+pad(14), amount: e.amount, paid: false }));
+  data.entries.expenses.push(...copy);
+  renderAll(); saveToFile();
+}
+document.getElementById('loadPrevMonth').addEventListener('click', loadPrevMonthExpenses);
+
+/* ==== Savings ==== */
+/* ==== Savings ==== */
+function renderSavings() {
+  const bucket = new Map();
+  ['income','expenses','personal'].forEach(type=>{
+    data.entries[type].forEach(e=>{
+      const d = new Date(e.date);
+      const y = d.getFullYear(), m = d.getMonth()+1;
+      const by = bucket.get(y) || new Map();
+      const bm = by.get(m) || { income:0, expenses:0, personal:0 };
+      bm[type] += Number(e.amount)||0;
+      by.set(m, bm);
+      bucket.set(y, by);
+    });
+  });
+
+  const years = Array.from(bucket.keys()).sort((a,b)=>a-b);
+  const curY = today.getFullYear();
+  if (years.length === 0) years.push(curY);
+
+  const tbody = document.getElementById('savingsMatrixBody');
+  tbody.innerHTML = '';
+
+  let bankAccount = 0;
+  let futureSavings = 0;
+  years.forEach(y=>{
+    const tr = document.createElement('tr');
+    const yCell = document.createElement('td'); 
+    yCell.textContent = y;
+    tr.appendChild(yCell);
+
+    let rowTotal = 0;   // 🔑 track total for this year
+
+    for (let m=1; m<=12; m++) {
+      const cell = document.createElement('td');
+      const by = bucket.get(y);
+      const bm = by ? by.get(m) : null;
+      const inc = bm ? bm.income : 0;
+      const exp = bm ? bm.expenses : 0;
+      const per = bm ? bm.personal : 0;
+      const net = inc - (exp + per);
+      cell.textContent = net.toFixed(2);
+      tr.appendChild(cell);
+
+      rowTotal += net;  // 🔑 accumulate monthly net
+
+      const nowY = today.getFullYear();
+      const nowM = today.getMonth()+1;
+      if (y < nowY || (y === nowY && m <= nowM)) {
+  bankAccount += net;       // past/current months
+} else {
+  futureSavings += net;     // future months
+}
+    }
+
+    // 🔑 append Total column
+    const totalCell = document.createElement('td');
+    totalCell.textContent = rowTotal.toFixed(2);
+    tr.appendChild(totalCell);
+
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('bankAccountBadge').innerHTML = 
+    `Bank Account: <strong>${bankAccount.toFixed(2)}</strong>`;
+  document.getElementById('bankAccountFutureBadge').innerHTML =
+  `Forecast: <strong>${(bankAccount + futureSavings).toFixed(2)}</strong>`;
+}
+
+
+/* ==== Modals (open/close with background scroll lock) ==== */
+function openSettings(){
+  document.getElementById('settingsModal').style.display='flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeSettings(){
+  document.getElementById('settingsModal').style.display='none';
+  document.body.style.overflow = '';
+}
+document.getElementById('openSettings').addEventListener('click', openSettings);
+document.getElementById('closeSettings').addEventListener('click', closeSettings);
+
+document.getElementById('bindFileBtn')?.addEventListener('click', async () => { await bindFilePicker(); });
+document.getElementById('reloadFileBtn')?.addEventListener('click', async () => { await reloadFromFile(); });
+
+document.getElementById('addNavBtn')?.addEventListener('click', () => {
+  const label = document.getElementById('newNavLabel').value.trim();
+  const url = document.getElementById('newNavUrl').value.trim();
+  if (!label) { alert('Provide a label'); return; }
+  const id = crypto.randomUUID();
+  data.nav.push({ label, url: url || '#', id });
+  renderNav(); saveToFile();
+  document.getElementById('newNavLabel').value = '';
+  document.getElementById('newNavUrl').value = '';
+});
+
+
+/* ==== Edit modal ==== */
+function openEditModal(type, entry) {
+  editContext = { type, id: entry.id };
+  document.getElementById('editType').value = type;
+  document.getElementById('editTitle').value = entry.title;
+  document.getElementById('editDate').value = entry.date;
+  document.getElementById('editAmount').value = String(entry.amount);
+  const paidWrap = document.getElementById('editPaidWrap');
+  if (type === 'expenses') {
+    paidWrap.style.display = 'flex';
+    document.getElementById('editPaid').checked = !!entry.paid;
+  } else {
+    paidWrap.style.display = 'none';
+  }
+  document.getElementById('editModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeEditModal() {
+  editContext = null;
+  document.getElementById('editModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('closeEditModal').addEventListener('click', closeEditModal);
+
+document.getElementById('saveEditBtn').addEventListener('click', () => {
+  if (!editContext) return;
+  const newType = document.getElementById('editType').value;
+  const newTitle = document.getElementById('editTitle').value.trim();
+  const newDate = document.getElementById('editDate').value;
+  const newAmountStr = document.getElementById('editAmount').value.trim();
+  const newAmount = parseFloat(newAmountStr);
+  const newPaid = document.getElementById('editPaid').checked;
+
+  if (!newTitle || !newDate || isNaN(newAmount)) { alert('Please provide valid Title, Date, and numeric Amount.'); return; }
+
+  const oldArr = data.entries[editContext.type];
+  const idx = oldArr.findIndex(x => x.id === editContext.id);
+  if (idx === -1) { closeEditModal(); return; }
+  const old = oldArr[idx];
+
+  if (newType !== editContext.type) {
+    const moved = { id: old.id, title: newTitle, date: newDate, amount: newAmount };
+    if (newType === 'expenses') moved.paid = newPaid;
+    data.entries[newType].push(moved);
+    data.entries[editContext.type].splice(idx, 1);
+  } else {
+    old.title = newTitle;
+    old.date = newDate;
+    old.amount = newAmount;
+    if (newType === 'expenses') old.paid = newPaid; else delete old.paid;
+  }
+
+  closeEditModal();
+  renderAll();
+  saveToFile();
+});
+
+/* ==== Render all ==== */
+function renderAll() {
+  renderNav();
+  renderFilters();
+  renderTable('income','incomeTable','incomeSum',false);
+  renderTable('expenses','expensesTable','expensesSum',true);
+  renderExpensesCheckedTotal();
+  renderTable('personal','personalTable','personalSum',false);
+  renderSavings();
+}
+
+/* ==== Init ==== */
+window.addEventListener('load', async () => {
+  document.getElementById('entryDate').value = ymdFromYearMonth(defaultData.filter.year, defaultData.filter.month, 14);
+  await updateAutosaveState();
+  await tryAutoLoad();
+  document.getElementById('entryDate').value = ymdFromYearMonth(data.filter.year, data.filter.month, 14);
+});
+
+
+</script>
+<script type="module" src="tracker.js"></script>
+<script src="nav.js"></script>
+<script>
+  renderNav(); // initialize nav bar
+</script>
+
+</body>
+</html>
