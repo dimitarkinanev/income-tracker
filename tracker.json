@@ -1,0 +1,3390 @@
+{
+  "ui": {
+    "fontSizes": {
+      "title": 20,
+      "th": 14,
+      "td": 14,
+      "icon": 18
+    },
+    "calendar": {
+      "monthTitle": 18,
+      "dayHeader": 12,
+      "dayValue": 12
+    }
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "url": "#",
+      "id": "home"
+    },
+    {
+      "label": "Calendar",
+      "url": "calendar.html",
+      "id": "a51ed183-dfee-4683-82db-9db780e60584"
+    },
+    {
+      "label": "Utilities",
+      "url": "utilities.html",
+      "id": "8acb7467-ed21-4e74-b3e5-9cf7dc2f771b"
+    }
+  ],
+  "filter": {
+    "month": 1,
+    "year": 2026
+  },
+  "entries": {
+    "income": [
+      {
+        "id": "fb39014b-bb12-4e4c-a946-79e096bbcc60",
+        "title": "Заплата",
+        "date": "2025-11-14",
+        "amount": 3272.27
+      },
+      {
+        "id": "1d2100b5-a517-4b89-9086-fcd3d95c332a",
+        "title": "Заплата",
+        "date": "2025-12-14",
+        "amount": 3272.27
+      },
+      {
+        "id": "22bcd0c6-9ce6-480d-8de3-01a7ce988fac",
+        "title": "Заплата",
+        "date": "2025-01-14",
+        "amount": 3108.65
+      },
+      {
+        "id": "e0bbe5a0-d295-42e8-9e0f-47301104b816",
+        "title": "Заплата",
+        "date": "2025-02-14",
+        "amount": 3108.65
+      },
+      {
+        "id": "9f52a0af-0eee-447d-9b50-c0bfc08dde47",
+        "title": "Заплата",
+        "date": "2024-01-14",
+        "amount": 3113.77
+      },
+      {
+        "id": "5701d2a7-cab3-467e-9fde-1fa26adc481a",
+        "title": "Заплата",
+        "date": "2025-03-14",
+        "amount": 3108.65
+      },
+      {
+        "id": "e2412d5e-91ac-4e62-8230-12215164991e",
+        "title": "Заплата",
+        "date": "2025-04-14",
+        "amount": 3108.65
+      },
+      {
+        "id": "566fe4f4-8e12-43ce-9c2d-966f531d47dd",
+        "title": "Заплата",
+        "date": "2025-05-14",
+        "amount": 3108.65
+      },
+      {
+        "id": "0fe3b021-fbe2-41bf-942e-79686ad72de9",
+        "title": "Заплата",
+        "date": "2025-06-14",
+        "amount": 3083.09
+      },
+      {
+        "id": "5e023f5d-160d-4a76-9071-a0ec510015eb",
+        "title": "Заплата",
+        "date": "2025-07-14",
+        "amount": 3083.1
+      },
+      {
+        "id": "1283526d-b68e-48f2-ae43-9327b7227519",
+        "title": "Заплата",
+        "date": "2025-08-14",
+        "amount": 3515.13
+      },
+      {
+        "id": "b93a271d-34a8-41b6-911e-769888423760",
+        "title": "Заплата",
+        "date": "2025-09-14",
+        "amount": 3272.27
+      },
+      {
+        "id": "e70c6e88-50af-4dbd-a271-eb4c3d93e7ee",
+        "title": "Заплата",
+        "date": "2025-10-14",
+        "amount": 3272.27
+      },
+      {
+        "id": "1efbb2fd-77d6-419a-a861-581710f43b61",
+        "title": "Заплата",
+        "date": "2024-02-14",
+        "amount": 3113.77
+      },
+      {
+        "id": "1e20e689-19bb-41a0-ab1c-98df87796fdc",
+        "title": "Заплата",
+        "date": "2024-03-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "0d04e0e7-e20b-4dd1-9c0e-8743a58d939e",
+        "title": "Заплата",
+        "date": "2024-04-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "af73d5c0-dd5a-4fdc-9952-e80f397b2619",
+        "title": "Заплата",
+        "date": "2024-05-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "09d0943b-26c1-4e93-b2df-28daf90a57a5",
+        "title": "Заплата",
+        "date": "2024-06-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "033552e4-1d45-4731-959c-4f0b32f4c0f9",
+        "title": "Заплата",
+        "date": "2024-07-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "828724a6-e605-4da8-9cba-e419a8403756",
+        "title": "Заплата",
+        "date": "2024-08-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "b4745f7f-0082-4765-8607-2ad73f50b91b",
+        "title": "Заплата",
+        "date": "2024-09-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "8dd5aa97-8f9d-41f4-a750-8c91a3742fc9",
+        "title": "Заплата",
+        "date": "2024-10-14",
+        "amount": 3091.27
+      },
+      {
+        "id": "8201c90a-3c24-4f85-9fa8-935b5e6ac1d7",
+        "title": "Заплата",
+        "date": "2024-11-14",
+        "amount": 3110.7
+      },
+      {
+        "id": "39360814-b24f-49cf-a76f-9e700f959786",
+        "title": "Заплата",
+        "date": "2024-12-14",
+        "amount": 3110.7
+      },
+      {
+        "id": "6a140082-56e4-4d70-a491-53d68b786a5a",
+        "title": "Заплата",
+        "date": "2023-03-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "9a8c6ecb-fffa-4c82-98df-a6a22b324e1c",
+        "title": "Заплата",
+        "date": "2023-04-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "8f0c9f54-b82d-4f25-9cac-ef734f26a020",
+        "title": "Заплата",
+        "date": "2023-05-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "669139af-d31a-460a-9944-77ce559d7b23",
+        "title": "Заплата",
+        "date": "2023-06-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "b4027ce3-ea49-4317-8523-63647cab79dd",
+        "title": "Заплата",
+        "date": "2023-07-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "67fe0123-e980-4b48-ba53-6e98a6e0808b",
+        "title": "Заплата",
+        "date": "2023-08-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "d8bafb17-648b-4565-8ca7-8fdc70e4dd93",
+        "title": "Заплата",
+        "date": "2023-09-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "c3f7db20-aa0f-4ec1-a9fa-f10d2d289710",
+        "title": "Заплата",
+        "date": "2023-10-14",
+        "amount": 2965.49
+      },
+      {
+        "id": "2f789834-970f-4448-bb19-5df5b4c4643b",
+        "title": "Заплата",
+        "date": "2023-11-14",
+        "amount": 3113.77
+      },
+      {
+        "id": "388e018b-a6ac-4e42-86aa-4fe49802f130",
+        "title": "Заплата",
+        "date": "2023-12-14",
+        "amount": 3113.77
+      },
+      {
+        "id": "7ec6017f-d049-4c9b-b315-7e74c415e788",
+        "title": "Стари",
+        "date": "2022-12-14",
+        "amount": 2367.28
+      },
+      {
+        "id": "db907176-2e96-4ca9-9058-5a911b0fc66a",
+        "title": "Заплата",
+        "date": "2026-01-14",
+        "amount": 3270
+      },
+      {
+        "id": "8dd2040d-214a-419b-b557-ce7a31361e6e",
+        "title": "Заплата",
+        "date": "2026-02-14",
+        "amount": 3270
+      },
+      {
+        "id": "319b8bfa-5afd-4fef-81c7-a7718ab378fa",
+        "title": "Заплата",
+        "date": "2026-03-14",
+        "amount": 3270
+      },
+      {
+        "id": "8f67d3bf-8b3b-479b-bf95-f13d541a5c68",
+        "title": "Заплата",
+        "date": "2026-04-14",
+        "amount": 3270
+      },
+      {
+        "id": "71c6f48f-52b2-43b5-be7e-178dab0661ba",
+        "title": "Заплата",
+        "date": "2026-05-14",
+        "amount": 3270
+      },
+      {
+        "id": "95f49c4a-771e-4108-ac3c-2a2096bd63d4",
+        "title": "Заплата",
+        "date": "2026-06-14",
+        "amount": 3270
+      },
+      {
+        "id": "08a07907-59c3-4cca-8509-1ac85cb4740c",
+        "title": "Заплата",
+        "date": "2026-07-14",
+        "amount": 3270
+      },
+      {
+        "id": "b342e068-7cc0-47bd-8042-119e4732a23c",
+        "title": "Заплата",
+        "date": "2026-08-14",
+        "amount": 3270
+      },
+      {
+        "id": "4d9b1a01-09c9-4790-80e0-a42c7d1b8cf1",
+        "title": "Заплата",
+        "date": "2026-09-14",
+        "amount": 3270
+      },
+      {
+        "id": "03e1bcdf-7b22-49fe-a08f-116034f40b25",
+        "title": "Заплата",
+        "date": "2026-10-14",
+        "amount": 3270
+      },
+      {
+        "id": "199a073b-445d-4df1-8eb2-6c25d97d6b76",
+        "title": "Заплата",
+        "date": "2026-11-14",
+        "amount": 3270
+      },
+      {
+        "id": "7690034b-fa88-49a1-813f-48604000aa4c",
+        "title": "Заплата",
+        "date": "2026-12-14",
+        "amount": 3270
+      }
+    ],
+    "expenses": [
+      {
+        "id": "fc545d5f-db6f-4307-aa0d-0633cb4d3f84",
+        "title": "Наем",
+        "date": "2025-11-14",
+        "amount": 245.42,
+        "paid": true
+      },
+      {
+        "id": "16c09f44-9af0-4e26-a961-a0b122dd7ccf",
+        "title": "Ток",
+        "date": "2025-11-14",
+        "amount": 10.23,
+        "paid": true
+      },
+      {
+        "id": "9a7f4ab9-0537-47bd-a59a-069a40916512",
+        "title": "Вода",
+        "date": "2025-11-14",
+        "amount": 10.23,
+        "paid": true
+      },
+      {
+        "id": "4e91df7d-77b3-480f-bedf-3b31d8fb9362",
+        "title": "Парно",
+        "date": "2025-11-14",
+        "amount": 10.23,
+        "paid": true
+      },
+      {
+        "id": "45b36cff-6786-4cef-b3d3-13da10b23d7e",
+        "title": "Наем",
+        "date": "2025-01-14",
+        "amount": 245.42,
+        "paid": false
+      },
+      {
+        "id": "e964792b-9362-44cb-9341-d2059848f66f",
+        "title": "Ток",
+        "date": "2025-01-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "1a06ee63-1689-472b-ad2f-9efab4dc8991",
+        "title": "Вода",
+        "date": "2025-01-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "f8234b94-dd2a-4eb9-9ba3-21fcfe87d17a",
+        "title": "Парно",
+        "date": "2025-01-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "0f998424-0c30-4eaf-a8d5-e93043b3c17d",
+        "title": "Интернет",
+        "date": "2025-01-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "469e26a1-41af-449a-a06f-75dac6818c25",
+        "title": "Абонаменти",
+        "date": "2025-01-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "60e134ea-adbe-49e6-a381-dbdfc2edca1e",
+        "title": "Гражданска + Каско",
+        "date": "2025-01-14",
+        "amount": 120.15,
+        "paid": false
+      },
+      {
+        "id": "0e3b86d3-a950-4726-9fac-b6a3a10c296c",
+        "title": "Телефон",
+        "date": "2025-01-14",
+        "amount": 79.25,
+        "paid": false
+      },
+      {
+        "id": "867df4b0-398b-448c-9060-ee5ca45d0341",
+        "title": "Наем",
+        "date": "2025-02-14",
+        "amount": 245.42,
+        "paid": false
+      },
+      {
+        "id": "817e06b4-af83-42af-a00f-bdb944045bdd",
+        "title": "Tok",
+        "date": "2025-02-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "1989670b-eaec-4fdb-9a09-eb00048d1643",
+        "title": "Вода",
+        "date": "2025-02-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "f638b265-305b-40be-8e9e-66286cfa16b4",
+        "title": "Парно",
+        "date": "2025-02-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "2ce9ae2f-abe9-4f4e-929a-92a0633d27cd",
+        "title": "Интернет",
+        "date": "2025-02-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "53f54f68-280e-4574-96ee-2d26713e4571",
+        "title": "Абонаменти",
+        "date": "2025-02-14",
+        "amount": 56.24,
+        "paid": false
+      },
+      {
+        "id": "c879893e-21b9-4244-8ebf-1a8e12d0daa0",
+        "title": "Телефон",
+        "date": "2025-02-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "4363b7c5-c6a6-4a74-a8f8-4c980ec1a195",
+        "title": "Наем - Март",
+        "date": "2025-02-14",
+        "amount": 276.1,
+        "paid": false
+      },
+      {
+        "id": "41fb8753-fa15-4009-89a3-7e4a46285dba",
+        "title": "Пътуване - Палма",
+        "date": "2025-02-14",
+        "amount": 184.07,
+        "paid": false
+      },
+      {
+        "id": "78964d1e-c641-40d2-a771-885dcad5e72b",
+        "title": "Интернет",
+        "date": "2025-03-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "d408dbea-8b0e-4fcd-b199-6e9cbe8a4df8",
+        "title": "Телефон",
+        "date": "2025-03-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "f3f33bc7-02ad-40d2-9ae6-862524a7d633",
+        "title": "Пътуване - Будапеща",
+        "date": "2025-03-14",
+        "amount": 1482.75,
+        "paid": false
+      },
+      {
+        "id": "41163fa8-84a9-4962-8a7b-15a8dedebdaa",
+        "title": "Кола - Обслужване",
+        "date": "2025-03-14",
+        "amount": 460.16,
+        "paid": false
+      },
+      {
+        "id": "d8c7a29d-d269-4b19-abef-4d3ead678ada",
+        "title": "Наем",
+        "date": "2025-04-14",
+        "amount": 245.42,
+        "paid": false
+      },
+      {
+        "id": "490902c3-673c-43bb-ba4a-f96244837841",
+        "title": "Ток",
+        "date": "2025-04-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "70f7109c-f4c3-4227-893c-a15f818f0cd3",
+        "title": "Вода",
+        "date": "2025-04-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "3b236120-a972-4128-bed0-b9093cb3f8c6",
+        "title": "Парно",
+        "date": "2025-04-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "cff9afe0-ad70-4225-9c0f-38239399c1c0",
+        "title": "Интернет",
+        "date": "2025-04-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "0cd56492-da60-46b8-aab4-9bc2e014d384",
+        "title": "Абонаменти",
+        "date": "2025-04-14",
+        "amount": 56.24,
+        "paid": false
+      },
+      {
+        "id": "b82a67ec-aa23-43e7-b240-4f1ec1a45758",
+        "title": "Наем - Паркомясто",
+        "date": "2025-04-14",
+        "amount": 306.78,
+        "paid": false
+      },
+      {
+        "id": "396ed111-d91d-4641-bc5a-28d1bdd231f8",
+        "title": "Каско",
+        "date": "2025-04-14",
+        "amount": 120.15,
+        "paid": false
+      },
+      {
+        "id": "a1f482bb-df2c-4fa6-8f5e-d16c1865e3b6",
+        "title": "Телефон",
+        "date": "2025-04-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "8fea1036-d7f4-4b86-aae1-fe32574d5f6d",
+        "title": "Пътуване - Палма",
+        "date": "2025-04-14",
+        "amount": 1738.39,
+        "paid": false
+      },
+      {
+        "id": "833d298f-8e13-400a-ad08-e2ee14224fc4",
+        "title": "Наем",
+        "date": "2025-05-14",
+        "amount": 245.42,
+        "paid": false
+      },
+      {
+        "id": "a39e3f15-ff47-4d5f-bdc1-f40fa91539a7",
+        "title": "Ток",
+        "date": "2025-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "89a85f3f-cccb-4017-b4c8-5ce766772c4a",
+        "title": "Вода",
+        "date": "2025-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "a93e36a9-1d60-45d5-939e-6e95ad2f7999",
+        "title": "Парно",
+        "date": "2025-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "51c6815c-1d08-4e6e-846f-5c416b081f98",
+        "title": "Интернет",
+        "date": "2025-05-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "4cc925f9-eb95-4cf0-86f6-c04d793fccd8",
+        "title": "Абонаменти",
+        "date": "2025-05-14",
+        "amount": 56.24,
+        "paid": false
+      },
+      {
+        "id": "39edd267-5210-4287-9032-4142a11b1d14",
+        "title": "Телефон",
+        "date": "2025-05-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "a8bf3db0-5f4a-4ddf-882d-51b9ed32a312",
+        "title": "Пътуване - Барселона",
+        "date": "2025-05-14",
+        "amount": 961.23,
+        "paid": false
+      },
+      {
+        "id": "eceeab98-a0ad-47f5-a445-223a0bfd6d19",
+        "title": "Сметки - Лято",
+        "date": "2025-05-14",
+        "amount": 1073.71,
+        "paid": false
+      },
+      {
+        "id": "bb7ece25-aee9-4a26-b941-58923bcdb961",
+        "title": "Интернет",
+        "date": "2025-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "52917cd4-c43a-4d9a-be9d-d6888f70b3ef",
+        "title": "Абонаменти",
+        "date": "2025-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "666f7c28-36aa-48b7-bce3-01d560c648fa",
+        "title": "Телефон",
+        "date": "2025-06-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "798d54b1-b57f-4a85-96e6-6e086589a11a",
+        "title": "Лятна почивка",
+        "date": "2025-06-14",
+        "amount": 1533.88,
+        "paid": false
+      },
+      {
+        "id": "65661683-d21d-47b9-bb61-7b0d4e98285a",
+        "title": "Колело",
+        "date": "2025-06-14",
+        "amount": 40.9,
+        "paid": false
+      },
+      {
+        "id": "6460351c-104a-4652-a41c-91934d293751",
+        "title": "Интернет",
+        "date": "2025-07-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "ad67dafb-94b9-432c-a6a4-44a3318050da",
+        "title": "Каско",
+        "date": "2025-07-14",
+        "amount": 120.15,
+        "paid": false
+      },
+      {
+        "id": "6ead9804-e4e4-4acd-8b0b-4ff64434b953",
+        "title": "Телефон",
+        "date": "2025-07-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "1c4287a7-f2f9-4a22-8bc7-fc43dc16610d",
+        "title": "Колело",
+        "date": "2025-07-14",
+        "amount": 40.9,
+        "paid": false
+      },
+      {
+        "id": "4f08aff3-ec74-4588-8d00-6c0347be4382",
+        "title": "Интернет",
+        "date": "2025-08-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "8fa4d48e-67ae-4fb9-b288-5ac862e4e463",
+        "title": "Абонаменти",
+        "date": "2025-08-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "2daa38fe-5491-46e7-9d01-4cc7032be04f",
+        "title": "Пътуване - Копенхаген",
+        "date": "2025-08-14",
+        "amount": 178.95,
+        "paid": false
+      },
+      {
+        "id": "8cf0e903-6381-471b-b3ac-e1f3f7705baa",
+        "title": "Колело",
+        "date": "2025-08-14",
+        "amount": 40.9,
+        "paid": false
+      },
+      {
+        "id": "e12107a9-b6bb-4e9e-b039-b80732fec4ac",
+        "title": "Пътуване - Вроцлав",
+        "date": "2025-08-14",
+        "amount": 99.7,
+        "paid": false
+      },
+      {
+        "id": "801ca335-fbe6-4629-92be-c0cc77eb7da0",
+        "title": "Наем",
+        "date": "2025-09-14",
+        "amount": 245.42,
+        "paid": false
+      },
+      {
+        "id": "2d7a0933-e137-4253-b941-2338091bb6dc",
+        "title": "Ток",
+        "date": "2025-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "efe59b12-1cb4-447b-b444-3d36ffadf467",
+        "title": "Вода",
+        "date": "2025-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "d1916e6e-2144-4b48-a04f-4b5839b29dea",
+        "title": "Парно",
+        "date": "2025-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "13a78cdb-e74e-4982-b486-4569f8a49bd8",
+        "title": "Интернет",
+        "date": "2025-09-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "6da159eb-b02a-441c-b8e5-cdc3bda44a34",
+        "title": "Абонаменти",
+        "date": "2025-09-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "906e8952-5341-4ecf-a7f5-35faea6bbf15",
+        "title": "Колело",
+        "date": "2025-09-14",
+        "amount": 40.9,
+        "paid": false
+      },
+      {
+        "id": "93c78a2f-5ef5-4a9d-9c52-d1ae80170abf",
+        "title": "Пътуване - Копенхаген",
+        "date": "2025-09-14",
+        "amount": 828.29,
+        "paid": false
+      },
+      {
+        "id": "4fa79ba5-5a19-407e-97bc-f7af0e770053",
+        "title": "Пътуване - Вроцлав",
+        "date": "2025-09-14",
+        "amount": 342.57,
+        "paid": false
+      },
+      {
+        "id": "b6714781-de9e-4cca-82ce-50252242e1b8",
+        "title": "Интернет",
+        "date": "2025-10-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "347f4ed3-ff50-4afa-b3a6-887bafa3b18a",
+        "title": "Абонамент",
+        "date": "2025-10-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "4baf01f8-b109-4529-8018-a5e9ca3c94b6",
+        "title": "Гражданска + Каско",
+        "date": "2025-10-14",
+        "amount": 283.77,
+        "paid": false
+      },
+      {
+        "id": "cf064351-26a5-4061-b8fa-66e55bcf41bf",
+        "title": "Колело",
+        "date": "2025-10-14",
+        "amount": 40.9,
+        "paid": false
+      },
+      {
+        "id": "c508f842-d23b-4f36-970a-1f6d29847327",
+        "title": "Интернет",
+        "date": "2025-11-14",
+        "amount": 51.13,
+        "paid": true
+      },
+      {
+        "id": "1923ab5b-20a0-4ed9-8474-e1d4d1e6a0c2",
+        "title": "Абонаменти",
+        "date": "2025-11-14",
+        "amount": 51.13,
+        "paid": true
+      },
+      {
+        "id": "0f531b87-84a7-4807-8dc6-e03f4338f6e0",
+        "title": "Слушалки",
+        "date": "2025-11-14",
+        "amount": 20.45,
+        "paid": true
+      },
+      {
+        "id": "80131e6c-7e9a-4bf9-887b-a9c24aa34ff0",
+        "title": "Наем - Декември",
+        "date": "2025-11-14",
+        "amount": 270.98,
+        "paid": true
+      },
+      {
+        "id": "198c9ebc-0823-4795-a93b-1b961a69ee83",
+        "title": "Интернет",
+        "date": "2025-12-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "7ff0d129-4ed0-4cb1-97ff-3d4c4b372cda",
+        "title": "Абонаменти",
+        "date": "2025-12-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "0090871e-f3ca-4985-b60a-3892da50ae39",
+        "title": "Слушалки",
+        "date": "2025-12-14",
+        "amount": 19.91,
+        "paid": false
+      },
+      {
+        "id": "10ab2c5a-1755-4480-92dc-04f93f89cee9",
+        "title": "Наем",
+        "date": "2024-01-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "84f40c3c-df58-4c4e-ba21-114d848ad6ac",
+        "title": "Ток",
+        "date": "2024-01-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "7c71c4ef-7557-4309-9a2e-6c407f3fecc1",
+        "title": "Вода",
+        "date": "2024-01-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "1cb6d80a-b8f7-4401-ab7b-670a627ad43f",
+        "title": "Парно",
+        "date": "2024-01-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "8999ab1c-187a-4b30-90ae-1f15f9e55453",
+        "title": "Интернет",
+        "date": "2024-01-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "18464b24-bcae-4b0d-8c5e-1b9b54cbb1d9",
+        "title": "Абонаменти",
+        "date": "2024-01-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "30b099ba-f445-4e62-a7e1-4f2897b2d984",
+        "title": "Гражданска + Каско",
+        "date": "2024-01-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "b20a389c-9724-432c-8b19-c2cefdb1f326",
+        "title": "Кредит - вноска 2",
+        "date": "2024-01-14",
+        "amount": 102.26,
+        "paid": false
+      },
+      {
+        "id": "b50c0e15-c468-4cd9-bcb7-47c14ea39e3f",
+        "title": "Вътрешен кредит",
+        "date": "2024-01-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "a101e8ec-5332-462c-a345-2054c63b37dc",
+        "title": "Телефон",
+        "date": "2024-01-14",
+        "amount": 511.29,
+        "paid": false
+      },
+      {
+        "id": "30f0900c-a2fe-40c7-94da-80a444af3ccd",
+        "title": "Наем - Февруари",
+        "date": "2024-01-14",
+        "amount": 255.65,
+        "paid": false
+      },
+      {
+        "id": "230455c2-8b4d-409c-afb6-cec57c05e9c2",
+        "title": "Очила",
+        "date": "2024-01-14",
+        "amount": 255.65,
+        "paid": false
+      },
+      {
+        "id": "6322a5a0-6fb0-4af9-8a46-3495ef001116",
+        "title": "Пътуване - Виена",
+        "date": "2024-01-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "402dacd4-24c0-4b8e-91bc-8dcc9c2a3344",
+        "title": "Интернет",
+        "date": "2024-02-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "4bba033d-bcee-431a-9fcf-be47b7507432",
+        "title": "Абонаменти",
+        "date": "2024-02-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "1793b000-add8-45a0-a74d-407788421919",
+        "title": "Кредит - вноска 3",
+        "date": "2024-02-14",
+        "amount": 102.26,
+        "paid": false
+      },
+      {
+        "id": "b5a8bedb-717f-4982-9ef7-22aa2e5af2e0",
+        "title": "Телефон",
+        "date": "2024-02-14",
+        "amount": 75.67,
+        "paid": false
+      },
+      {
+        "id": "c3351196-7184-47f5-a765-2249a4f4ef7e",
+        "title": "Заем - кака",
+        "date": "2024-02-14",
+        "amount": 1891.78,
+        "paid": false
+      },
+      {
+        "id": "5a0b3777-0b49-49d2-96e4-63320c8641c7",
+        "title": "Наем",
+        "date": "2024-03-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "80d323a1-2eae-4d36-858a-b93fdbe705ac",
+        "title": "Ток",
+        "date": "2024-03-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "034985d2-7b2a-438b-bc74-79ccb4bf11c8",
+        "title": "Вода",
+        "date": "2024-03-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "c05f5530-b0af-400a-a08b-c9d94dbfad84",
+        "title": "Парно",
+        "date": "2024-03-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "6faf0b72-d3d9-4520-973f-7bccfbf59880",
+        "title": "Интернет",
+        "date": "2024-03-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "23cf4111-e1f7-408e-945b-5104e9b95e7c",
+        "title": "Абонаменти",
+        "date": "2024-03-14",
+        "amount": 68,
+        "paid": false
+      },
+      {
+        "id": "80bb0cf6-16ab-49be-bf36-3ad489da78d1",
+        "title": "Кредит - вноска 4",
+        "date": "2024-03-14",
+        "amount": 102.26,
+        "paid": false
+      },
+      {
+        "id": "eb9e7077-9e16-406e-b8b2-1e7b55b8b825",
+        "title": "Телефон",
+        "date": "2024-03-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "c6528cae-45ca-4a4f-9d4c-68605f80cddd",
+        "title": "Мама",
+        "date": "2024-03-14",
+        "amount": 511.29,
+        "paid": false
+      },
+      {
+        "id": "d0f1797e-b364-4221-9c9c-e366bb47e270",
+        "title": "Заем - кака",
+        "date": "2024-03-14",
+        "amount": -102.26,
+        "paid": false
+      },
+      {
+        "id": "f78ed87b-ccdc-47d7-b83d-20357dff341b",
+        "title": "Заем - кака",
+        "date": "2024-03-14",
+        "amount": -102.26,
+        "paid": false
+      },
+      {
+        "id": "6c24f6de-0f01-4400-8ff8-fa2219f53a67",
+        "title": "Наем",
+        "date": "2024-04-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "0dc9ee33-fea1-4e62-a59c-49a1ebb5850c",
+        "title": "Ток",
+        "date": "2024-04-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "f56bf423-d7e3-4997-8866-cc76aa15c1db",
+        "title": "Вода",
+        "date": "2024-04-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "e3696138-f492-44f7-97d9-88a80692591b",
+        "title": "Парно",
+        "date": "2024-04-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "485b8b25-83b4-4c1b-af5e-d6a0862f9d92",
+        "title": "Интернет",
+        "date": "2024-04-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "f8b8d480-2bcf-4b64-9fb9-b4273653885a",
+        "title": "Абонаменти",
+        "date": "2024-04-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "394b7ed2-6238-4a36-9560-9df2e5a74fa5",
+        "title": "Телефон",
+        "date": "2024-04-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "03a5d4ac-178d-471b-816e-96879de53bad",
+        "title": "Мама",
+        "date": "2024-04-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "8d3132e0-0435-4094-afe2-a8ee7563a3fe",
+        "title": "Заем - кака",
+        "date": "2024-04-14",
+        "amount": -204.52,
+        "paid": false
+      },
+      {
+        "id": "cbb2542b-ed01-4b72-a07e-959d3c9e3be9",
+        "title": "Гражданска + Каско",
+        "date": "2024-04-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "ff9d0be4-b804-4bf5-b70f-83ab45e29f06",
+        "title": "Пътуване - Виена",
+        "date": "2024-04-14",
+        "amount": 587.99,
+        "paid": false
+      },
+      {
+        "id": "e731ddf4-bac3-4bf4-a026-1eba096d5c1b",
+        "title": "Кола - Обслужване",
+        "date": "2024-04-14",
+        "amount": 332.34,
+        "paid": false
+      },
+      {
+        "id": "d99de118-0c4c-456d-b5b6-76e567d4246f",
+        "title": "Наем - Паркомясто",
+        "date": "2024-04-14",
+        "amount": 306.78,
+        "paid": false
+      },
+      {
+        "id": "48d4da9f-dc07-4b45-83f8-ac01cecbd75b",
+        "title": "Наем",
+        "date": "2024-05-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "ac42c6a6-ea02-4680-a822-686678904108",
+        "title": "Ток",
+        "date": "2024-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "4af757fb-7a6b-444c-9ea2-033f73b2b7d8",
+        "title": "Вода",
+        "date": "2024-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "09671076-944a-476f-a2e6-84301433bd90",
+        "title": "Парно",
+        "date": "2024-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "34423f64-9587-4368-a388-d7ed3c78b596",
+        "title": "Интернет",
+        "date": "2024-05-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "19e39957-8570-4050-b1ae-f66d2985f02d",
+        "title": "Абонаменти",
+        "date": "2024-05-14",
+        "amount": 66.47,
+        "paid": false
+      },
+      {
+        "id": "e25ab56f-1538-4884-a533-ead85bdea090",
+        "title": "Телефон",
+        "date": "2024-05-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "f78230d9-12eb-4a29-bb3b-9e1190778dc6",
+        "title": "Мама",
+        "date": "2024-05-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "cf48306b-99d5-4ec9-be15-daf0c1effd9e",
+        "title": "Заем - кака",
+        "date": "2024-05-14",
+        "amount": -306.78,
+        "paid": false
+      },
+      {
+        "id": "4eaaaf44-e5cd-45f2-b2e0-ce353eb604f2",
+        "title": "Заем - кака",
+        "date": "2024-05-14",
+        "amount": -153.39,
+        "paid": false
+      },
+      {
+        "id": "54b82d94-9a17-4ceb-a6bb-fcc88627c1cf",
+        "title": "Пътуване - Кипър",
+        "date": "2024-05-14",
+        "amount": 291.44,
+        "paid": false
+      },
+      {
+        "id": "7b72e4a0-5d41-4341-9f51-5937796e134e",
+        "title": "300 Евро",
+        "date": "2024-05-14",
+        "amount": 306.78,
+        "paid": false
+      },
+      {
+        "id": "9895b6b7-1e8d-42a9-83ab-01a65848c461",
+        "title": "Наем",
+        "date": "2024-06-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "e280452d-6a8e-436a-ad81-0d16ddae9297",
+        "title": "Ток",
+        "date": "2024-06-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "18ec7b10-6ead-46da-98cc-a57cceb0d73b",
+        "title": "Вода",
+        "date": "2024-06-14",
+        "amount": 5.11,
+        "paid": false
+      },
+      {
+        "id": "cdd91984-e7e2-4307-914d-fb8768e32509",
+        "title": "Парно",
+        "date": "2024-06-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "f5202bfb-1011-487e-8605-e4bd63c3b8a5",
+        "title": "Интернет",
+        "date": "2024-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "bb7aa288-02f3-4f76-a71d-bb07d21a64c0",
+        "title": "Абонаменти",
+        "date": "2024-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "88015b73-4d14-48cf-8ff7-457c3e1c44ae",
+        "title": "Телефон",
+        "date": "2024-06-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "e0e67e64-554d-484f-89bb-9e6bbae5220e",
+        "title": "Мама",
+        "date": "2024-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "add20b94-d478-48c9-b2cd-5a7009206d40",
+        "title": "Наем - Юли и Август",
+        "date": "2024-06-14",
+        "amount": 409.03,
+        "paid": false
+      },
+      {
+        "id": "9bdcd22a-1ca8-40f7-82b2-5255fca52f07",
+        "title": "Сметки - Юли + Август",
+        "date": "2024-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "9e97e1e4-fb9a-4407-b868-4d428dc7f633",
+        "title": "Пътуване - Кипър",
+        "date": "2024-06-14",
+        "amount": 593.1,
+        "paid": false
+      },
+      {
+        "id": "92c29bbe-9f7c-43e4-9651-336d786b4fba",
+        "title": "Интернет",
+        "date": "2024-07-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "8a123020-3bbb-4516-9010-c8f15a6c737b",
+        "title": "Абонаменти",
+        "date": "2024-07-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "de533f98-3ece-4307-a7bd-c188ba50110f",
+        "title": "Телефон",
+        "date": "2024-07-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "1d027930-f01b-45e1-bc09-e45b829c99ba",
+        "title": "Мама",
+        "date": "2024-07-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "6d9dbcd3-d429-4140-af04-3495a285d467",
+        "title": "Гражданска + Каско",
+        "date": "2024-07-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "d58c97d2-8d93-46fc-8628-cee4a7eb398c",
+        "title": "Интернет",
+        "date": "2024-08-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "df650bcc-9284-4910-8f24-e8c0357e32ec",
+        "title": "Абонаменти",
+        "date": "2024-08-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "2955bc8f-62d0-4de1-bc9e-0569e8f80e63",
+        "title": "Телефон",
+        "date": "2024-08-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "3e343466-aa73-43b0-87a3-035ae883e803",
+        "title": "Мама",
+        "date": "2024-08-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "d68c21bb-3bdc-4a1f-ae85-2563defd014e",
+        "title": "Наем",
+        "date": "2024-09-14",
+        "amount": 127.82,
+        "paid": false
+      },
+      {
+        "id": "3f25bf93-f700-487b-b4cc-7aa98788d0e1",
+        "title": "Ток",
+        "date": "2024-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "52715803-e6f8-4b59-8ae2-43867e3b6592",
+        "title": "Вода",
+        "date": "2024-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "79500af8-e0f3-41a2-8acd-f53f4473b4fb",
+        "title": "Парно",
+        "date": "2024-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "4bf0a0db-eab3-4725-8926-420bc50ca037",
+        "title": "Интернет",
+        "date": "2024-09-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "8209e66d-7211-4aba-aa1c-7d3402f77b02",
+        "title": "Абонаменти",
+        "date": "2024-09-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "ba5eafd7-54a9-45a1-8dab-d861b34ae3d2",
+        "title": "Телефон",
+        "date": "2024-09-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "a5638ffe-8cf6-448d-9487-d561e9da25b4",
+        "title": "Мама",
+        "date": "2024-09-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "3e6d7dd0-fced-4d74-b1a3-da2fc75e3b43",
+        "title": "Наем",
+        "date": "2024-10-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "d5f32917-3ded-47bc-87a8-4f4582a92a7d",
+        "title": "Ток",
+        "date": "2024-10-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "2596af68-ac6b-4ddb-bf22-9e60b3f372f6",
+        "title": "Вода",
+        "date": "2024-10-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "15e8091c-914d-4e89-9798-dee0568aeb77",
+        "title": "Парно",
+        "date": "2024-10-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "de98e8a1-0f6b-451b-8ddc-4dba809c45e4",
+        "title": "Интернет",
+        "date": "2024-10-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "2203c9c6-5b18-40d4-9ca4-d1d85546229d",
+        "title": "Абонаменти",
+        "date": "2024-10-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "940182f2-c268-4269-b499-a170c8b0ca3c",
+        "title": "Телефон",
+        "date": "2024-10-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "b0e69026-4375-41a9-9b08-e135c7188846",
+        "title": "Мама",
+        "date": "2024-10-14",
+        "amount": 171.79,
+        "paid": false
+      },
+      {
+        "id": "cdd4a1f3-e10c-4905-a8d1-72c887de0f7c",
+        "title": "Гражданска + Каско",
+        "date": "2024-10-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "d8e56492-7274-43b2-b145-29d5647444ae",
+        "title": "Наем - Паркомясто",
+        "date": "2024-10-14",
+        "amount": 306.78,
+        "paid": false
+      },
+      {
+        "id": "c5021a70-e74a-4715-abd2-76e509d2a504",
+        "title": "Наем",
+        "date": "2024-11-14",
+        "amount": 245.42,
+        "paid": false
+      },
+      {
+        "id": "e4e9a0c1-a58a-4280-a7d3-6000ac17714b",
+        "title": "Ток",
+        "date": "2024-11-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "219215d8-c839-474b-b1be-69035b8557f4",
+        "title": "Вода",
+        "date": "2024-11-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "f75ead89-1f98-4651-898d-ccaddc07245f",
+        "title": "Парно",
+        "date": "2024-11-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "ddc9bbf5-913f-4cf8-b406-97657dbbac85",
+        "title": "Интернет",
+        "date": "2024-11-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "19979be1-28cc-4e20-97e2-2324082dad8c",
+        "title": "Абонаменти",
+        "date": "2024-11-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "e203d028-846c-457e-9d0f-5eb0c4282ed9",
+        "title": "Телефон",
+        "date": "2024-11-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "f2b53833-6da9-44fc-8553-fa486b5a55f9",
+        "title": "Мама",
+        "date": "2024-11-14",
+        "amount": 61.36,
+        "paid": false
+      },
+      {
+        "id": "d8efe1d2-d80b-4315-82ab-fd64df64f3c1",
+        "title": "Наем - Декември",
+        "date": "2024-11-14",
+        "amount": 270.98,
+        "paid": false
+      },
+      {
+        "id": "3a8259fd-40f9-4941-8482-5fd143901a27",
+        "title": "Интернет",
+        "date": "2024-12-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "8e5da49d-c907-48fe-9029-d1386f77cfcf",
+        "title": "Абонаменти",
+        "date": "2024-12-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "f52b7902-65c4-473c-b424-c59be621845b",
+        "title": "Телефон",
+        "date": "2024-12-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "acc69b36-073d-4ee1-9332-4454a2e1e793",
+        "title": "Наем",
+        "date": "2023-03-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "eaa27657-ef4b-4f2f-9e00-a3b60e58ecb8",
+        "title": "Ток",
+        "date": "2023-03-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "a26a6aa5-1afa-4cff-9d4b-5f12c828b32e",
+        "title": "Вода",
+        "date": "2023-03-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "56da2a9b-f016-445d-8bb6-3aa48812c1ba",
+        "title": "Парно",
+        "date": "2023-03-14",
+        "amount": 76.69,
+        "paid": false
+      },
+      {
+        "id": "19ce4274-e512-4b92-91cc-4a32290ecb30",
+        "title": "Интернет",
+        "date": "2023-03-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "a81b81a8-98e6-48b1-a655-f1a423779967",
+        "title": "Абонаменти",
+        "date": "2023-03-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "6879f3c7-e009-4292-a066-c96a888ff32f",
+        "title": "Наем",
+        "date": "2023-04-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "9c380871-9d2f-4827-951b-663837ac9638",
+        "title": "Ток",
+        "date": "2023-04-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "b312327e-fe99-4939-8c9c-a4b292fdc3fc",
+        "title": "Вода",
+        "date": "2023-04-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "627e850c-2e66-4332-b2ec-09e45cba476b",
+        "title": "Парно",
+        "date": "2023-04-14",
+        "amount": 25.56,
+        "paid": false
+      },
+      {
+        "id": "faf5a92b-dfa2-4b9a-b52c-a52b41a071c7",
+        "title": "Интернет",
+        "date": "2023-04-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "2dc633ed-9b4b-4262-8ed5-666abb8ec4b2",
+        "title": "Абонаменти",
+        "date": "2023-04-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "41f1c930-b8be-45c6-b31d-f1c182694671",
+        "title": "Наем - Паркомясто",
+        "date": "2023-04-14",
+        "amount": 306.78,
+        "paid": false
+      },
+      {
+        "id": "71d9753e-0d13-4030-9b65-300ccf6e03c3",
+        "title": "Гражданска + Каско",
+        "date": "2023-04-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "eceba8be-fdff-449e-827a-a52235ba7885",
+        "title": "Гуми",
+        "date": "2023-04-14",
+        "amount": 818.07,
+        "paid": false
+      },
+      {
+        "id": "45654516-0eef-448a-8477-063c7bb4d92d",
+        "title": "Наем",
+        "date": "2023-05-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "80cd6dfa-f57e-402a-bf2e-f5b0d1e62a25",
+        "title": "Ток",
+        "date": "2023-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "2c1719c9-a69f-4119-a31a-13474a666cbd",
+        "title": "Вода",
+        "date": "2023-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "2c479390-00e2-4039-ad73-9cb5e41635c8",
+        "title": "Парно",
+        "date": "2023-05-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "f537e9ea-824f-4add-a4c5-df7ab7d6352e",
+        "title": "Интернет",
+        "date": "2023-05-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "8ce573ec-2a40-4708-9100-8593cd5c796f",
+        "title": "Абонаменти",
+        "date": "2023-05-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "57c0528d-9f0c-4495-a288-656d2ac8ee65",
+        "title": "Наем",
+        "date": "2023-06-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "29b52b9a-b882-4969-9c39-8d9545da3344",
+        "title": "Ток",
+        "date": "2023-06-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "1d604f27-6629-4835-8454-7b6d7a5e19f6",
+        "title": "Вода",
+        "date": "2023-06-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "6a62b011-8b54-4778-bc90-585afc9732ce",
+        "title": "Парно",
+        "date": "2023-06-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "0b15834c-3913-48fd-8659-71becb757b0f",
+        "title": "Интернет",
+        "date": "2023-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "787f607d-8bdf-4e55-8c08-80f5955b26b1",
+        "title": "Абонаменти",
+        "date": "2023-06-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "b1533ec5-4bef-440d-b532-256f10b0636a",
+        "title": "Почивка 1",
+        "date": "2023-06-14",
+        "amount": 1124.84,
+        "paid": false
+      },
+      {
+        "id": "8c3db751-c73b-4cc0-8249-99c1a8f47f73",
+        "title": "Почивка 2",
+        "date": "2023-06-14",
+        "amount": 1150.41,
+        "paid": false
+      },
+      {
+        "id": "532b5b29-3bbe-486f-ad02-cb4b8a479f9f",
+        "title": "Наем - Юли + Август",
+        "date": "2023-06-14",
+        "amount": 460.16,
+        "paid": false
+      },
+      {
+        "id": "1d544743-628c-4e24-94dd-81e72702b42c",
+        "title": "Кола",
+        "date": "2023-06-14",
+        "amount": 971.45,
+        "paid": false
+      },
+      {
+        "id": "86cef89e-0d86-4289-90e3-b357a8d393ee",
+        "title": "Каско",
+        "date": "2023-06-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "768bd6ad-6d54-4eb9-b8cb-1ba764a1d1cd",
+        "title": "Интернет",
+        "date": "2023-07-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "43ffad63-9252-422a-aee0-8f92dee9d2a5",
+        "title": "Абонаменти",
+        "date": "2023-07-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "a1da83de-3672-41a5-b8d3-24715df03b9d",
+        "title": "Климатик",
+        "date": "2023-07-14",
+        "amount": 357.9,
+        "paid": false
+      },
+      {
+        "id": "a8351a35-c0af-4949-b0d0-61c9c9d38119",
+        "title": "Интернет",
+        "date": "2023-08-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "4e8aa018-3842-4f82-860e-aef3653d2fc3",
+        "title": "Абонаменти",
+        "date": "2023-08-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "0939ddb3-ff81-4165-9bd7-849f0b0c1e2f",
+        "title": "Кола - Ремонт",
+        "date": "2023-08-14",
+        "amount": 869.2,
+        "paid": false
+      },
+      {
+        "id": "2ce51e50-cac6-44ff-93c3-973f72489b4d",
+        "title": "Пътуване - Рим",
+        "date": "2023-08-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "595d5257-88b1-4ee9-805a-729b60386b52",
+        "title": "Наем",
+        "date": "2023-09-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "7900de9c-92e6-40b0-8646-4cb6d253bb56",
+        "title": "Ток",
+        "date": "2023-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "47aae3b6-cb7a-4a59-b6ba-fefdb1019ef9",
+        "title": "Вода",
+        "date": "2023-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "992a5592-3058-40ee-8904-aeabd4857567",
+        "title": "Парно",
+        "date": "2023-09-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "6bdba312-e4ed-46e4-b9a4-74a2bfdc4d4e",
+        "title": "Интернет",
+        "date": "2023-09-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "236e2528-bd21-453e-8389-52ad32d38d70",
+        "title": "Абонаменти",
+        "date": "2023-09-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "cc948900-834f-464d-9a5a-2769f2409878",
+        "title": "Пътуване - Виена и Берлин",
+        "date": "2023-09-14",
+        "amount": 1109.5,
+        "paid": false
+      },
+      {
+        "id": "290adbd9-be91-4d52-8380-c997261b6314",
+        "title": "Пътуване - Джобни",
+        "date": "2023-09-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "4eb706d7-e2e0-4dd4-91e0-3cea8d2bd8b5",
+        "title": "Дрехи",
+        "date": "2023-09-14",
+        "amount": 332.34,
+        "paid": false
+      },
+      {
+        "id": "1a6d1079-2470-44c2-bc35-df11d491dfc6",
+        "title": "Наем",
+        "date": "2023-10-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "d1c26d9c-326d-4363-a64a-ac6f36fedf36",
+        "title": "Интернет",
+        "date": "2023-10-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "833f4c26-5beb-4f55-80f6-c641afe0ffcf",
+        "title": "Абонаменти",
+        "date": "2023-10-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "28ebedcc-a63c-417b-b7df-aab112b63788",
+        "title": "Гражданска + Каско",
+        "date": "2023-10-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "9de0c8a3-2584-436f-8d0a-33e13f0afebd",
+        "title": "Наем - Паркомясто",
+        "date": "2023-10-14",
+        "amount": 306.78,
+        "paid": false
+      },
+      {
+        "id": "c177e47e-519b-48f7-bac7-221fa8460c84",
+        "title": "Пътуване - Джобни",
+        "date": "2023-10-14",
+        "amount": 306.78,
+        "paid": false
+      },
+      {
+        "id": "14beb3f9-54f9-440b-a89e-9c8b7c4fce27",
+        "title": "Кола - Акция Зима",
+        "date": "2023-10-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "dffc80c1-ab41-4c40-b353-7588e3aa6a92",
+        "title": "Дрехи",
+        "date": "2023-10-14",
+        "amount": 132.94,
+        "paid": false
+      },
+      {
+        "id": "31d5b77b-cc6f-4c8a-a225-4be2eb35bbb2",
+        "title": "Рожден Ден",
+        "date": "2023-10-14",
+        "amount": 153.39,
+        "paid": false
+      },
+      {
+        "id": "41df7fa0-d6ce-4739-aad0-85f7aff5667f",
+        "title": "Наем",
+        "date": "2023-11-14",
+        "amount": 204.52,
+        "paid": false
+      },
+      {
+        "id": "b4a1de0f-9005-4c2a-9277-effb81f5d287",
+        "title": "Ток",
+        "date": "2023-11-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "9d0318a3-02fc-469a-882e-eb7296e22621",
+        "title": "Вода",
+        "date": "2023-11-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "11d3324d-53d1-4195-b77d-08c2fca7a754",
+        "title": "Парно",
+        "date": "2023-11-14",
+        "amount": 10.23,
+        "paid": false
+      },
+      {
+        "id": "2865a139-a467-434d-8391-4c821651a1f7",
+        "title": "Интернет",
+        "date": "2023-11-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "22ae4db0-8c7e-4ed6-86b9-8156f2fa4457",
+        "title": "Абонаменти",
+        "date": "2023-11-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "7c5e6ead-f889-44f7-8f8a-6b0584666549",
+        "title": "Наем - Декември",
+        "date": "2023-11-14",
+        "amount": 235.19,
+        "paid": false
+      },
+      {
+        "id": "aec71ed0-3461-4d22-a7fb-df8b5d54ab13",
+        "title": "Интернет",
+        "date": "2023-12-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "79d2e50a-5013-4246-8064-a9ff444de699",
+        "title": "Абонаменти",
+        "date": "2023-12-14",
+        "amount": 51.13,
+        "paid": false
+      },
+      {
+        "id": "a8852025-5846-4659-98eb-3af644cca9c9",
+        "title": "Вноска 1",
+        "date": "2023-12-14",
+        "amount": 102.26,
+        "paid": false
+      },
+      {
+        "id": "b9dc2c2e-d6eb-4ef9-a3c4-7677d2bd59ce",
+        "title": "Подаръци",
+        "date": "2023-12-14",
+        "amount": 511.29,
+        "paid": false
+      },
+      {
+        "id": "a8efd0d9-dda0-4923-bb2b-3824eddccb33",
+        "title": "Наем",
+        "date": "2026-01-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "932b310a-f0a8-45fa-ba6c-6ebd3ce38894",
+        "title": "Ток",
+        "date": "2026-01-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "9447a926-5416-48d9-a211-3cc02c668e3a",
+        "title": "Вода",
+        "date": "2026-01-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "2b6df260-0a24-47ab-845f-0d478ce2ebed",
+        "title": "Парно",
+        "date": "2026-01-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "14d6f5c3-0b1a-4640-b0b4-5101e52beb92",
+        "title": "Интернет",
+        "date": "2026-01-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "d273a65e-70ea-418d-9b5f-52ae410c4f00",
+        "title": "Абонаменти",
+        "date": "2026-01-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "66081d74-5313-43f9-99de-d85da3b1a847",
+        "title": "Каско",
+        "date": "2026-01-14",
+        "amount": 108,
+        "paid": false
+      },
+      {
+        "id": "450f586d-a984-4022-8807-086c2c0cee90",
+        "title": "Наем - Паркомясто",
+        "date": "2026-01-14",
+        "amount": 205,
+        "paid": false
+      },
+      {
+        "id": "61e9f32f-94ce-484f-804d-f7d7c59e544b",
+        "title": "Наем",
+        "date": "2026-02-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "0c23ea1f-7ebc-48c7-bd70-9a0c7e210432",
+        "title": "Ток",
+        "date": "2026-02-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "6eb54d54-eb42-46a8-835b-24bc8ce7bb20",
+        "title": "Вода",
+        "date": "2026-02-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "91648232-a76a-4b85-bb5b-8c7386c27a44",
+        "title": "Парно",
+        "date": "2026-02-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "cba57a13-e218-4f72-95b7-464ae5131b20",
+        "title": "Интернет",
+        "date": "2026-02-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "700ac407-3289-4974-8d9a-91f1e63b4f70",
+        "title": "Абонаменти",
+        "date": "2026-02-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "c2f3547c-b07f-494d-866c-a62b7c1d662e",
+        "title": "Наем",
+        "date": "2026-03-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "c6943658-5c68-4d05-9bab-3e96fbe7cdc5",
+        "title": "Ток",
+        "date": "2026-03-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "e407bdd1-c27e-4e3a-8e1f-e0e913715b26",
+        "title": "Вода",
+        "date": "2026-03-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "156e46ab-81f9-4dac-9d1c-e993229c4936",
+        "title": "Парно",
+        "date": "2026-03-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "29864821-663c-411a-a62b-00991fe182bc",
+        "title": "Интернет",
+        "date": "2026-03-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "3ad60795-a5d2-497e-8105-4f30ac0e9c82",
+        "title": "Абонаменти",
+        "date": "2026-03-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "4df48ca3-0190-4771-b1b7-fe8a05ec17b0",
+        "title": "Кола - Обслужване",
+        "date": "2026-03-14",
+        "amount": 511,
+        "paid": false
+      },
+      {
+        "id": "a6e0966d-d0d0-4374-9d49-7ac4c661de95",
+        "title": "Наем",
+        "date": "2026-04-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "b162b89b-cc1e-45d8-ae92-619ab903bead",
+        "title": "Ток",
+        "date": "2026-04-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "cb4542e3-de53-4dfc-bda4-3a0e61186823",
+        "title": "Вода",
+        "date": "2026-04-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "41e5f75e-7811-4436-876c-0db8980d6873",
+        "title": "Парно",
+        "date": "2026-04-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "e0c0503e-9a6a-409b-8b57-dcb0ece55af2",
+        "title": "Интернет",
+        "date": "2026-04-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "b0a7e083-d8a0-4577-97d3-d68ab235fa76",
+        "title": "Абонаменти",
+        "date": "2026-04-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "76073dd0-8f1d-464f-9783-97ef52b32084",
+        "title": "Наем - Паркомясто",
+        "date": "2026-04-14",
+        "amount": 307,
+        "paid": false
+      },
+      {
+        "id": "9fd03fa9-64f4-4313-aa2a-1b5bb4f05595",
+        "title": "Каско",
+        "date": "2026-04-14",
+        "amount": 108,
+        "paid": false
+      },
+      {
+        "id": "d1fc2c00-ca47-4b83-8887-2a96e367889e",
+        "title": "Наем",
+        "date": "2026-05-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "0468dc82-ba73-44ec-a2b5-771efb801c83",
+        "title": "Ток",
+        "date": "2026-05-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "2603a3f8-9920-4343-82d6-beb415c0f7db",
+        "title": "Вода",
+        "date": "2026-05-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "5bd817c0-c50c-42c3-8875-668f6141b558",
+        "title": "Парно",
+        "date": "2026-05-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "fbce5d63-3ab3-4ea1-816e-255ce8191fe0",
+        "title": "Интернет",
+        "date": "2026-05-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "cc01e298-027c-41a4-a4fa-17a5db953202",
+        "title": "Абонаменти",
+        "date": "2026-05-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "1cfde736-8549-4c07-a9ad-ab070d0a807a",
+        "title": "Наем",
+        "date": "2026-06-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "63c5a3e1-69b8-4210-9b39-e51dec5b70aa",
+        "title": "Ток",
+        "date": "2026-06-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "cbf016ac-d0c5-48f2-a1f8-8fecc436087e",
+        "title": "Вода",
+        "date": "2026-06-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "be999a8d-d51c-4e88-971a-577f4776545b",
+        "title": "Парно",
+        "date": "2026-06-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "d14c2ce3-f7ed-4f48-90ab-92f859e4a1c2",
+        "title": "Интернет",
+        "date": "2026-06-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "7e7f0de8-3589-4232-b5a9-dd68082a2f6e",
+        "title": "Абонаменти",
+        "date": "2026-06-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "7ef62c76-ff2b-4459-9644-3c993d557610",
+        "title": "Наем",
+        "date": "2026-07-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "45a97fe9-c532-41ab-ae23-bb0469252619",
+        "title": "Ток",
+        "date": "2026-07-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "c5f1f6e2-a958-4190-a5e3-509a77b56da7",
+        "title": "Вода",
+        "date": "2026-07-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "2a44f261-b92d-4308-9825-cb29c32d70e2",
+        "title": "Парно",
+        "date": "2026-07-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "79ed95b6-5d5e-4802-bf68-24a290440168",
+        "title": "Интернет",
+        "date": "2026-07-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "c8847128-4b03-43c5-94f9-42713bd857d8",
+        "title": "Абонаменти",
+        "date": "2026-07-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "8ee39234-7a6b-4dab-99ce-143ec1fca5ea",
+        "title": "Каско",
+        "date": "2026-07-14",
+        "amount": 108,
+        "paid": false
+      },
+      {
+        "id": "67a01c5a-7f7d-47ff-b7da-b899654a98c8",
+        "title": "Наем",
+        "date": "2026-08-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "d324b76e-f5af-4905-9a62-326075d44ebe",
+        "title": "Ток",
+        "date": "2026-08-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "dec972a1-7037-4e5d-89ce-0386bc490bad",
+        "title": "Вода",
+        "date": "2026-08-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "05adea7a-c32b-4530-bc97-f68898d2be73",
+        "title": "Парно",
+        "date": "2026-08-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "766eae1a-08aa-4b3e-8cde-f98a87b2e787",
+        "title": "Интернет",
+        "date": "2026-08-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "2c95a515-6635-4676-b08f-676c4f9fd9f5",
+        "title": "Абонаменти",
+        "date": "2026-08-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "6e34a282-1c5f-4fd1-9044-67e1c7c66d75",
+        "title": "Наем",
+        "date": "2026-09-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "65d86f66-afeb-4880-9b22-02e95be8d4c3",
+        "title": "Ток",
+        "date": "2026-09-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "05e7dfef-69e7-4ab2-b24b-1f55e0da7e37",
+        "title": "Вода",
+        "date": "2026-09-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "6a2cc723-eb2d-4526-9624-075b414b0a37",
+        "title": "Парно",
+        "date": "2026-09-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "9199b5df-1a61-4759-ad5b-4c5f89c338b6",
+        "title": "Интернет",
+        "date": "2026-09-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "c7c48c2b-5674-4f14-ab76-2857b5f75694",
+        "title": "Абонаменти",
+        "date": "2026-09-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "9939ed3e-eda0-4fcc-921b-6eda2c046fdc",
+        "title": "Наем",
+        "date": "2026-10-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "6eecba1e-1707-4b86-b373-779f34dd0e47",
+        "title": "Ток",
+        "date": "2026-10-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "511d36fe-83f7-4674-8520-f9b6a9abb8d8",
+        "title": "Вода",
+        "date": "2026-10-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "566d72b4-7a9f-4d0a-8149-4775d89634c8",
+        "title": "Парно",
+        "date": "2026-10-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "e610144f-e95e-4bd2-8bc4-bafa981387b8",
+        "title": "Интернет",
+        "date": "2026-10-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "4bcdb9fc-e49c-40d3-a497-f8e144652ff7",
+        "title": "Абонаменти",
+        "date": "2026-10-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "bd114f81-df56-47fc-94d7-2ce3fdc659ff",
+        "title": "Гражданска + Каско",
+        "date": "2026-10-14",
+        "amount": 274,
+        "paid": false
+      },
+      {
+        "id": "e905d8e8-b189-4afa-bf05-63a1bd17edf1",
+        "title": "Акция Зима",
+        "date": "2026-10-14",
+        "amount": 205,
+        "paid": false
+      },
+      {
+        "id": "8f186a2b-73ab-4be6-acba-21ccc291fa27",
+        "title": "Наем",
+        "date": "2026-11-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "3a335891-2c03-488e-bdc0-0100382876d4",
+        "title": "Ток",
+        "date": "2026-11-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "14018f2b-4702-4b35-8605-29f4419c691f",
+        "title": "Вода",
+        "date": "2026-11-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "2ea01248-cac1-445f-9003-32639f836c7d",
+        "title": "Парно",
+        "date": "2026-11-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "07bbab5f-e39c-4061-8c30-409ad7c2f362",
+        "title": "Интернет",
+        "date": "2026-11-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "1636f58c-8a83-4085-8806-e76a3cb08c16",
+        "title": "Абонаменти",
+        "date": "2026-11-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "6b69606c-c636-45c8-b00c-0e1b3db3ac47",
+        "title": "Наем",
+        "date": "2026-12-14",
+        "amount": 265,
+        "paid": false
+      },
+      {
+        "id": "f33d42bb-f209-4d16-8e82-d9e8c7c9d5a0",
+        "title": "Ток",
+        "date": "2026-12-14",
+        "amount": 26,
+        "paid": false
+      },
+      {
+        "id": "7552a772-0820-476c-95d2-ae0918428592",
+        "title": "Вода",
+        "date": "2026-12-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "f667571c-1484-490e-a7f5-82a0329a3221",
+        "title": "Парно",
+        "date": "2026-12-14",
+        "amount": 11,
+        "paid": false
+      },
+      {
+        "id": "52e9e79a-12ec-4100-9401-af656ab85aad",
+        "title": "Интернет",
+        "date": "2026-12-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "76b00a34-767e-4f0b-abf0-0a988ec59775",
+        "title": "Абонаменти",
+        "date": "2026-12-14",
+        "amount": 52,
+        "paid": false
+      },
+      {
+        "id": "98c13f95-3fa2-4875-b31d-c2d0bd76fa2c",
+        "title": "Слушалки",
+        "date": "2026-01-14",
+        "amount": 19.91,
+        "paid": false
+      },
+      {
+        "id": "15baf12f-7850-463d-b674-7d68587e5190",
+        "title": "Слушалки",
+        "date": "2026-02-14",
+        "amount": 19.91,
+        "paid": false
+      },
+      {
+        "id": "c41cac97-c936-4171-8468-8c6aedfccb61",
+        "title": "Слушалки",
+        "date": "2026-03-14",
+        "amount": 19.91,
+        "paid": false
+      },
+      {
+        "id": "d6a746aa-4b75-4735-a9d8-d5a52c0fa7c6",
+        "title": "Слушалки",
+        "date": "2026-04-14",
+        "amount": 19.91,
+        "paid": false
+      }
+    ],
+    "personal": [
+      {
+        "id": "a1248958-0951-44c8-ac70-a5eb8d12f17b",
+        "title": "Лични",
+        "date": "2025-11-14",
+        "amount": 480.61
+      },
+      {
+        "id": "d2409e48-4b52-48cd-bede-cf4ab8722cf1",
+        "title": "Лични",
+        "date": "2025-12-14",
+        "amount": 414.15
+      },
+      {
+        "id": "f0d3b21c-fa39-4ce0-8821-8d4338452395",
+        "title": "Лични",
+        "date": "2025-01-14",
+        "amount": 1237.33
+      },
+      {
+        "id": "649666b0-588e-4cca-9fe5-b32410e404a3",
+        "title": "Лични",
+        "date": "2025-02-14",
+        "amount": 1406.05
+      },
+      {
+        "id": "c12f7ad8-081d-4f98-a514-c0db1b581ea4",
+        "title": "Лични",
+        "date": "2025-03-14",
+        "amount": 526.63
+      },
+      {
+        "id": "006cafe9-2819-447c-8f3b-899cd67deec7",
+        "title": "Лични",
+        "date": "2025-04-14",
+        "amount": 467.83
+      },
+      {
+        "id": "fbea03bf-fc09-4b00-bb25-e755a9c5ec1a",
+        "title": "Лични",
+        "date": "2025-05-14",
+        "amount": 869.2
+      },
+      {
+        "id": "02744be6-0ce0-4ef8-832b-15fe429fa704",
+        "title": "Лични",
+        "date": "2025-06-14",
+        "amount": 460.16
+      },
+      {
+        "id": "e74d2151-17fd-4438-82d3-10f5746f1cdd",
+        "title": "Лични",
+        "date": "2025-07-14",
+        "amount": 442.27
+      },
+      {
+        "id": "d1309d11-1693-45fd-a364-838e80cc6264",
+        "title": "Лични",
+        "date": "2025-08-14",
+        "amount": 485.73
+      },
+      {
+        "id": "90f020ce-13c9-4761-a715-d14177403713",
+        "title": "Лични",
+        "date": "2025-09-14",
+        "amount": 1017.47
+      },
+      {
+        "id": "ca14eddd-06d9-422a-b3ab-787e3df24411",
+        "title": "Лични",
+        "date": "2025-10-14",
+        "amount": 1413.72
+      },
+      {
+        "id": "7ccecd2f-db1c-456a-bf80-a396a053f92e",
+        "title": "Лични",
+        "date": "2024-01-14",
+        "amount": 1329.36
+      },
+      {
+        "id": "0a95ce33-ee6b-4d9c-be71-338dd82334c9",
+        "title": "Лични",
+        "date": "2024-02-14",
+        "amount": 1095.19
+      },
+      {
+        "id": "d560f6ba-bc68-44a3-a72a-feef873725ed",
+        "title": "Лични",
+        "date": "2024-03-14",
+        "amount": 804.26
+      },
+      {
+        "id": "f2be3025-ff70-4e93-a3ed-f306fa0480a0",
+        "title": "Лични",
+        "date": "2024-04-14",
+        "amount": 1127.91
+      },
+      {
+        "id": "ecf4e5e5-6a2d-4087-9a3e-1e84d0ca552f",
+        "title": "Лични",
+        "date": "2024-05-14",
+        "amount": 1910.19
+      },
+      {
+        "id": "53f050aa-b407-4a2b-bdd1-622ee01b6a13",
+        "title": "Лични",
+        "date": "2024-06-14",
+        "amount": 964.3
+      },
+      {
+        "id": "3e95d03d-1c38-4c66-be50-0ca733ef363e",
+        "title": "Лични",
+        "date": "2024-07-14",
+        "amount": 509.25
+      },
+      {
+        "id": "43fabb89-f521-459b-a2eb-f82eae4bd344",
+        "title": "Лични",
+        "date": "2024-08-14",
+        "amount": 458.12
+      },
+      {
+        "id": "84e07d67-7783-4c03-9780-5853326558f5",
+        "title": "Лични",
+        "date": "2024-09-14",
+        "amount": 555.26
+      },
+      {
+        "id": "0c94ec24-8a1e-494c-a02e-3db56cb78482",
+        "title": "Лични",
+        "date": "2024-10-14",
+        "amount": 511.29
+      },
+      {
+        "id": "14bb28ec-d66b-416c-b303-7ce41ae9bb34",
+        "title": "Лични",
+        "date": "2024-11-14",
+        "amount": 533.79
+      },
+      {
+        "id": "8ff87338-f741-44ac-afae-327f82651d6a",
+        "title": "Лични",
+        "date": "2024-12-14",
+        "amount": 375.29
+      },
+      {
+        "id": "c8d029bf-ee01-4f71-89e7-b1ffd3d0ebae",
+        "title": "Лични",
+        "date": "2023-03-14",
+        "amount": 516.4
+      },
+      {
+        "id": "5225bacb-1d42-4429-a834-c3f7e7235dea",
+        "title": "Лични",
+        "date": "2023-04-14",
+        "amount": 823.18
+      },
+      {
+        "id": "cfad9b7c-bb53-4958-93ce-25dba2a6f7b9",
+        "title": "Лични",
+        "date": "2023-05-14",
+        "amount": 1349.81
+      },
+      {
+        "id": "f96d468b-5b77-4fb6-bfe5-559c8b96d8fd",
+        "title": "Лични",
+        "date": "2023-06-14",
+        "amount": 1068.6
+      },
+      {
+        "id": "b9e8639a-9389-4063-a828-c050624ea508",
+        "title": "Лични",
+        "date": "2023-07-14",
+        "amount": 766.94
+      },
+      {
+        "id": "c8d6b782-93a4-445a-86ad-8f6ca8a0df70",
+        "title": "Лични",
+        "date": "2023-08-14",
+        "amount": 511.29
+      },
+      {
+        "id": "61ccd008-ea3b-4f55-82e1-4a1a92ca5027",
+        "title": "Лични",
+        "date": "2023-09-14",
+        "amount": 828.29
+      },
+      {
+        "id": "16e8fb77-bf4f-48ad-aac0-3bfa2890d297",
+        "title": "Лични",
+        "date": "2023-11-14",
+        "amount": 1518.54
+      },
+      {
+        "id": "6307d2ac-2af7-412c-9757-ff29799411ab",
+        "title": "Лични",
+        "date": "2023-12-14",
+        "amount": 864.08
+      },
+      {
+        "id": "b3d8f591-5f6a-4ca5-bb3d-a20ad619d46c",
+        "title": "Лични",
+        "date": "2023-10-14",
+        "amount": 634
+      },
+      {
+        "id": "4a0b0f2d-0f01-4247-903d-720d6568646f",
+        "title": "Лични",
+        "date": "2026-01-14",
+        "amount": 720
+      },
+      {
+        "id": "f54cab4f-9e71-40f3-b773-a265632b63bb",
+        "title": "Лични",
+        "date": "2026-02-14",
+        "amount": 733
+      },
+      {
+        "id": "ee3b4404-d051-4f57-9c87-c3e878649ba0",
+        "title": "Лични",
+        "date": "2026-03-14",
+        "amount": 722
+      },
+      {
+        "id": "8a12a13d-e054-4a4b-aa16-2cf242d14b1d",
+        "title": "Лични",
+        "date": "2026-04-14",
+        "amount": 718
+      },
+      {
+        "id": "a85ca32a-15d6-4df0-891b-1795d551454b",
+        "title": "Лични",
+        "date": "2026-05-14",
+        "amount": 753
+      },
+      {
+        "id": "c7509b22-05e8-4b7f-9139-d73fd51480e6",
+        "title": "Лични",
+        "date": "2026-06-14",
+        "amount": 753
+      },
+      {
+        "id": "41116585-9d00-4652-8f45-540f8f072730",
+        "title": "Лични",
+        "date": "2026-07-14",
+        "amount": 745
+      },
+      {
+        "id": "c7bc5a7a-e535-49fc-b69d-a8e1f89d6658",
+        "title": "Лични",
+        "date": "2026-08-14",
+        "amount": 753
+      },
+      {
+        "id": "69f28fc9-247d-459d-8e47-cd7cb8ad69df",
+        "title": "Лични",
+        "date": "2026-09-14",
+        "amount": 753
+      },
+      {
+        "id": "ef9143ce-76ad-418c-9152-5ab1b4e7e3cf",
+        "title": "Лични",
+        "date": "2026-10-14",
+        "amount": 774
+      },
+      {
+        "id": "e75f0562-bf6e-4312-90b1-3ecf0aca008d",
+        "title": "Лични",
+        "date": "2026-11-14",
+        "amount": 753
+      },
+      {
+        "id": "98481ed8-03ad-415c-a03e-7bad2686797d",
+        "title": "Лични",
+        "date": "2026-12-14",
+        "amount": 753
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "5415591e-05b9-4f4f-8186-e8af4412b03e",
+      "type": "holiday",
+      "start": "2025-03-03",
+      "end": "2025-03-03"
+    },
+    {
+      "id": "c54a430a-e4c8-413b-b1dd-9bb4f1b79de0",
+      "type": "holiday",
+      "start": "2025-04-18",
+      "end": "2025-04-21"
+    },
+    {
+      "id": "df17e7e7-45f1-4dbf-95ca-b821f2b1af25",
+      "type": "holiday",
+      "start": "2025-05-01",
+      "end": "2025-05-01"
+    },
+    {
+      "id": "0a940536-203f-45f9-a499-62b0d288d49e",
+      "type": "holiday",
+      "start": "2025-05-06",
+      "end": "2025-05-06"
+    },
+    {
+      "id": "4c5cf30e-dcea-489a-9556-8b200b178db0",
+      "type": "holiday",
+      "start": "2025-05-26",
+      "end": "2025-05-26"
+    },
+    {
+      "id": "d40172c6-6227-4baf-ad6a-847f4a29be63",
+      "type": "vacation",
+      "start": "2025-09-01",
+      "end": "2025-09-01"
+    },
+    {
+      "id": "61a1df31-c2eb-49ca-a6ed-739d917b5932",
+      "type": "holiday",
+      "start": "2025-09-08",
+      "end": "2025-09-08"
+    },
+    {
+      "id": "9e3c0098-e3be-45ba-8a8e-30d855a28911",
+      "type": "holiday",
+      "start": "2025-09-22",
+      "end": "2025-09-22"
+    },
+    {
+      "id": "6e86a557-d328-409a-8e18-3fc70f838e56",
+      "type": "holiday",
+      "start": "2025-12-24",
+      "end": "2025-12-26"
+    },
+    {
+      "id": "bdfa0a1c-3d22-4052-99ab-2b39b3084c9e",
+      "type": "holiday",
+      "start": "2025-12-31",
+      "end": "2026-01-02"
+    },
+    {
+      "id": "5f6aaffb-a4ef-4434-83f0-840ab89f8021",
+      "type": "vacation",
+      "start": "2025-04-11",
+      "end": "2025-04-15"
+    },
+    {
+      "id": "5bc2045c-4d7e-4dd0-9803-93cb7fab8daa",
+      "type": "vacation",
+      "start": "2025-05-05",
+      "end": "2025-05-07"
+    },
+    {
+      "id": "9d1da9f4-4a31-4fec-99d6-a32181a6c851",
+      "type": "vacation",
+      "start": "2025-06-16",
+      "end": "2025-06-16"
+    },
+    {
+      "id": "ec2d7f6e-3dd7-4d90-aa0c-1b679404cfab",
+      "type": "vacation",
+      "start": "2025-07-14",
+      "end": "2025-07-18"
+    },
+    {
+      "id": "8f5f6d32-9e8f-415c-aa67-ec6ccfc3340f",
+      "type": "vacation",
+      "start": "2025-08-11",
+      "end": "2025-08-13"
+    },
+    {
+      "id": "1c0e4a4d-fa67-4851-9fd3-b582a0d42a09",
+      "type": "vacation",
+      "start": "2025-08-25",
+      "end": "2025-08-25"
+    },
+    {
+      "id": "56253c09-bf07-426f-a105-bd2b474a5392",
+      "type": "vacation",
+      "start": "2025-09-19",
+      "end": "2025-09-19"
+    },
+    {
+      "id": "551f3a84-03f2-4fc5-883a-f67f1b5fa7f7",
+      "type": "vacation",
+      "start": "2025-12-22",
+      "end": "2025-12-23"
+    },
+    {
+      "id": "eb636310-cb2c-4d84-8657-fe7febd16c93",
+      "type": "vacation",
+      "start": "2025-12-29",
+      "end": "2025-12-30"
+    },
+    {
+      "id": "9c3b7aaa-55db-482f-829f-5bd8d023fb30",
+      "type": "holiday",
+      "start": "2026-03-03",
+      "end": "2026-03-03"
+    },
+    {
+      "id": "b8af7e51-100d-427e-a2fa-fd8da1963705",
+      "type": "holiday",
+      "start": "2026-04-10",
+      "end": "2026-04-13"
+    },
+    {
+      "id": "fb5db0ea-b0fd-49d9-99d2-5b7d45ce68c7",
+      "type": "holiday",
+      "start": "2026-05-01",
+      "end": "2026-05-01"
+    },
+    {
+      "id": "4245fca0-db0e-4b11-8d5d-7ff717488935",
+      "type": "holiday",
+      "start": "2025-05-06",
+      "end": "2025-05-06"
+    },
+    {
+      "id": "6434377c-ba96-46c6-ae87-08b525e47b5a",
+      "type": "holiday",
+      "start": "2025-05-06",
+      "end": "2025-05-06"
+    },
+    {
+      "id": "fbd8460e-5673-43be-81ff-927f6019584d",
+      "type": "holiday",
+      "start": "2025-05-06",
+      "end": "2025-05-06"
+    },
+    {
+      "id": "02389bbf-67fb-4875-9f41-1f5b03013390",
+      "type": "holiday",
+      "start": "2025-05-06",
+      "end": "2025-05-06"
+    },
+    {
+      "id": "8c18a57b-749d-4f86-aa6c-36e0389f82d6",
+      "type": "holiday",
+      "start": "2025-05-06",
+      "end": "2025-05-06"
+    },
+    {
+      "id": "d084715b-8672-4e36-9f6c-4c9475c23c30",
+      "type": "holiday",
+      "start": "2025-05-06",
+      "end": "2025-05-06"
+    },
+    {
+      "id": "6f9b430d-6680-442a-9b3c-adc4911ce48d",
+      "type": "holiday",
+      "start": "2026-05-06",
+      "end": "2026-05-06"
+    },
+    {
+      "id": "e4249705-88ae-4001-b846-9aeba509c437",
+      "type": "holiday",
+      "start": "2025-01-01",
+      "end": "2025-01-01"
+    },
+    {
+      "id": "66997b84-4328-42f4-aa5e-03c5b2ff7a27",
+      "type": "holiday",
+      "start": "2026-09-07",
+      "end": "2026-09-07"
+    },
+    {
+      "id": "6fb83a5c-9f3f-4be4-b73e-1aa3e1108f75",
+      "type": "holiday",
+      "start": "2026-09-22",
+      "end": "2026-09-22"
+    },
+    {
+      "id": "5995d3bd-084b-4efb-8b14-11ab0b63a6fd",
+      "type": "holiday",
+      "start": "2026-12-24",
+      "end": "2026-12-28"
+    }
+  ],
+  "vacationAllowance": {
+    "2025": 31,
+    "2026": 35
+  },
+  "meta": {
+    "notes": ""
+  },
+  "utilities": {
+    "cards": [
+      {
+        "id": "util-1",
+        "title": "Subscriptions",
+        "layout": "shared",
+        "columns": [
+          {
+            "id": "c1",
+            "title": "Task",
+            "kind": "text",
+            "recurrence": {
+              "type": "none"
+            },
+            "visible": true
+          },
+          {
+            "id": "c2",
+            "title": "Amount",
+            "kind": "number",
+            "calc": null,
+            "recurrence": {
+              "type": "none"
+            },
+            "visible": true
+          },
+          {
+            "id": "c3",
+            "title": "Due",
+            "kind": "date",
+            "recurrence": {
+              "type": "monthly"
+            },
+            "visible": true
+          }
+        ],
+        "badges": [
+          {
+            "id": "b1",
+            "title": "Total",
+            "calc": {
+              "op": "sum",
+              "columns": [
+                "c2"
+              ],
+              "column": "c2"
+            }
+          }
+        ],
+        "filters": {
+          "enabled": false,
+          "criteria": [
+            {
+              "id": "f1",
+              "title": "Month",
+              "type": "month",
+              "column": "c3"
+            },
+            {
+              "id": "f2",
+              "title": "Year",
+              "type": "year",
+              "column": "c3"
+            }
+          ],
+          "active": {
+            "f1": null,
+            "f2": null
+          }
+        },
+        "notifications": {
+          "enabled": true,
+          "column": "c3",
+          "daysBefore": 1
+        },
+        "rows": [
+          {
+            "id": "r1",
+            "cells": {
+              "c1": "HBO",
+              "c2": 5.32,
+              "c3": {
+                "day": 1
+              }
+            }
+          },
+          {
+            "id": "0fdeabf6-067a-44d5-8e77-f2de0196eb61",
+            "cells": {
+              "c1": "Netflix",
+              "c2": 9.99,
+              "c3": {
+                "day": 27
+              }
+            }
+          },
+          {
+            "id": "955d818d-c185-4040-81c2-75da6aa22c6c",
+            "cells": {
+              "c1": "Evrotrust",
+              "c2": 3.56,
+              "c3": {
+                "day": 14
+              }
+            }
+          },
+          {
+            "id": "c876c856-126e-482d-a280-196289e69e5c",
+            "cells": {
+              "c1": "Spotify",
+              "c2": 7.9,
+              "c3": {
+                "day": 24
+              }
+            }
+          },
+          {
+            "id": "7ae372fa-bc1f-45fd-90c3-3ff55d591141",
+            "cells": {
+              "c1": "Apple",
+              "c2": 10.7,
+              "c3": {
+                "day": 29
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "f78b5ee1-8470-4c68-b899-0a0b60079606",
+        "title": "Bills",
+        "layout": "shared",
+        "columns": [
+          {
+            "id": "667ea2ef-6f81-4578-bee8-2f1bcaecc9df",
+            "title": "Title",
+            "kind": "text",
+            "visible": true,
+            "recurrence": {
+              "type": "none"
+            }
+          },
+          {
+            "id": "d044ed11-1a34-45ec-b809-fac746a37a77",
+            "title": "Amount",
+            "kind": "number",
+            "visible": true,
+            "recurrence": {
+              "type": "none"
+            }
+          },
+          {
+            "id": "485a6d01-f006-4f70-a6da-1c1f80d54ccf",
+            "title": "Date",
+            "kind": "date",
+            "visible": true,
+            "recurrence": {
+              "type": "none"
+            }
+          }
+        ],
+        "badges": [
+          {
+            "id": "189a5c12-8e13-4aba-aaed-3bc76d73274c",
+            "title": "Total",
+            "calc": {
+              "op": "sum",
+              "column": "d044ed11-1a34-45ec-b809-fac746a37a77"
+            }
+          }
+        ],
+        "filters": {
+          "enabled": true,
+          "criteria": [
+            {
+              "id": "1478b0b2-9981-4a66-8e4a-cf6dcfb39a20",
+              "title": "Month",
+              "type": "month",
+              "column": "485a6d01-f006-4f70-a6da-1c1f80d54ccf"
+            },
+            {
+              "id": "3312a1c6-4662-4a2f-805b-bf68bc3bcf42",
+              "title": "Year",
+              "type": "year",
+              "column": "485a6d01-f006-4f70-a6da-1c1f80d54ccf"
+            }
+          ],
+          "active": {
+            "1478b0b2-9981-4a66-8e4a-cf6dcfb39a20": "12",
+            "3312a1c6-4662-4a2f-805b-bf68bc3bcf42": "2025"
+          }
+        },
+        "notifications": {
+          "enabled": false,
+          "column": null,
+          "daysBefore": 0
+        },
+        "rows": [
+          {
+            "id": "65827678-23cf-4a2f-a82e-97e292ea7968",
+            "cells": {
+              "667ea2ef-6f81-4578-bee8-2f1bcaecc9df": "Ток",
+              "d044ed11-1a34-45ec-b809-fac746a37a77": 12.23,
+              "485a6d01-f006-4f70-a6da-1c1f80d54ccf": "2025-11-03T00:00:00.000Z"
+            }
+          },
+          {
+            "id": "ff07cd09-271d-4925-a2c3-7e2f1acc784a",
+            "cells": {
+              "667ea2ef-6f81-4578-bee8-2f1bcaecc9df": "Вода",
+              "d044ed11-1a34-45ec-b809-fac746a37a77": 3.78,
+              "485a6d01-f006-4f70-a6da-1c1f80d54ccf": "2025-11-06T00:00:00.000Z"
+            }
+          },
+          {
+            "id": "2d368d02-fa88-46a6-87f9-b0f6f0b17921",
+            "cells": {
+              "667ea2ef-6f81-4578-bee8-2f1bcaecc9df": "Парно",
+              "d044ed11-1a34-45ec-b809-fac746a37a77": 11.47,
+              "485a6d01-f006-4f70-a6da-1c1f80d54ccf": "2025-11-15T00:00:00.000Z"
+            }
+          },
+          {
+            "id": "d0556b67-f569-4447-902b-4384a19b1489",
+            "cells": {
+              "667ea2ef-6f81-4578-bee8-2f1bcaecc9df": "Ток",
+              "d044ed11-1a34-45ec-b809-fac746a37a77": 11.56,
+              "485a6d01-f006-4f70-a6da-1c1f80d54ccf": "2025-12-01T00:00:00.000Z"
+            }
+          },
+          {
+            "id": "78207de0-4e44-4ca8-a036-4d7e378ac300",
+            "cells": {
+              "667ea2ef-6f81-4578-bee8-2f1bcaecc9df": "Вода",
+              "d044ed11-1a34-45ec-b809-fac746a37a77": 3.78,
+              "485a6d01-f006-4f70-a6da-1c1f80d54ccf": "2025-12-05T00:00:00.000Z"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "version": 1
+}

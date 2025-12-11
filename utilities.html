@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Utilities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --line:#111827; --text:#111827; --bg:#fff; --panel:#fff;
+      --button-glow: rgba(173,216,230,0.8);
+      --badge-border: #FFC000;
+      --title-font-size:20px; --th-font-size:14px; --td-font-size:14px;
+      --icon-size:18px;
+    }
+    body { background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial; margin:0; padding:0 10%; }
+    @media(max-width:1024px){body{padding:0 6%;}}
+    @media(max-width:640px){body{padding:0 2%;}}
+
+    /* Topbar and buttons */
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+      padding:10px 0;border-bottom:3px solid var(--line);position:sticky;top:0;z-index:10;background:var(--panel);}
+    .nav-left,.nav-right{display:flex;gap:8px;flex-wrap:wrap;}
+    .nav-btn,.settings-btn,.btn,.icon-btn{padding:10px 12px;border-radius:10px;border:3px solid var(--line);
+      background:#fff;color:var(--text);cursor:pointer;transition:.12s;box-shadow:0 0 12px var(--button-glow);}
+    .icon-btn{font-size:var(--icon-size);}
+    .nav-btn.active{box-shadow:0 0 0 3px var(--button-glow);}
+    .nav-btn:hover,.settings-btn:hover,.btn:hover,.icon-btn:hover{transform:scale(1.03);
+      box-shadow:0 0 0 3px var(--button-glow),0 6px 18px -6px rgba(0,0,0,.12);}
+    .page-title{text-align:center;margin:5% 0;font-weight:800;font-size:24px;}
+
+    /* Cards grid */
+    .cards{display:grid;grid-template-columns:1fr;gap:16px;padding-bottom:24px;}
+    .cards.shared{grid-template-columns:repeat(3,minmax(280px,1fr));gap:16px;align-items:start;} /* independent card height */
+    .card{background:var(--panel);border:3px solid var(--line);border-radius:14px;padding:16px;min-width:0;height:auto;} /* auto height */
+    .card.full{grid-column:1/-1;}
+    .card-header{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin-bottom:12px;min-width:0;}
+    @media(max-width:640px){.card-header{grid-template-columns:1fr;}}
+    .card-title{font-size:var(--title-font-size);font-weight:700;display:inline-flex;gap:10px;flex-wrap:wrap;min-width:0;}
+    .card-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;min-width:0;}
+
+    /* Chips */
+    .chip {
+      border: 3px solid var(--badge-border);
+      background: #fff;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      transition: transform .12s ease, box-shadow .12s ease;
+      box-shadow: 0 0 10px var(--button-glow);
+      display: inline-block;
+      max-width: 100%;
+      white-space: normal;
+      line-height: 1.4;
+    }
+    .chip:hover { transform: scale(1.03); }
+    .chip strong { font-weight: 700; }
+
+    /* Tables */
+    table{width:100%;border-collapse:collapse;}
+    th,td{padding:10px;border-bottom:1px solid rgba(17,24,39,.2);text-align:left;}
+    th{font-size:var(--th-font-size);font-weight:700;}
+    td{font-size:var(--td-font-size);}
+
+    /* Context menus */
+    .context-menu{position:fixed;background:var(--panel);border:3px solid var(--line);border-radius:12px;
+      padding:6px;display:none;z-index:20;min-width:220px;}
+    .context-menu .btn{width:100%;margin-bottom:6px;}
+
+    /* Modals */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);display:none;align-items:flex-start;
+      justify-content:center;z-index:30;padding:40px 20px;}
+    .modal{background:#fff;border:3px solid var(--line);border-radius:14px;width:95%;max-width:960px;margin:0 auto;
+      padding:16px;color:var(--text);max-height:85vh;overflow-y:auto;}
+    .modal h3{margin:0 0 12px;font-size:18px;}
+    .stack{display:flex;flex-direction:column;gap:12px;min-width:0;}
+    .stack-row{display:flex;flex-direction:row;gap:12px;flex-wrap:wrap;min-width:0;}
+    .field{display:flex;flex-direction:column;gap:6px;width:100%;max-width:360px;box-sizing:border-box;}
+    .input,select,input[type=text],input[type=date],input[type=number]{width:100%;box-sizing:border-box;padding:10px;border-radius:10px;border:3px solid var(--line);background:#fff;color:var(--text);}
+    .controls-inline { display:flex; gap:8px; flex-wrap:wrap; }
+
+    /* Editor lists: one per row */
+    .editor-list{display:flex;flex-direction:column;gap:12px;}
+    .editor-item{display:flex;flex-direction:column;gap:12px;padding:12px;border:3px dashed rgba(17,24,39,.2);border-radius:12px;background:#fff;}
+
+    /* Filters row styling: multiple filters in one row */
+    .filters-wrap {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 12px;
+    }
+    .filters-row {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .filters-row label { font-weight: 600; min-width: 70px; }
+    .filters-row select, .filters-row input {
+      flex: 1;
+      padding: 10px;
+      font-size: var(--td-font-size);
+      border: 3px solid var(--line);
+      border-radius: 10px;
+    }
+
+    @media(max-width:640px){
+      .nav-btn,.settings-btn,.btn,.icon-btn,.input,select,input[type=text],input[type=date],input[type=number]{width:100%!important;}
+      .modal{width:100%!important;max-width:100%!important;padding:12px!important;}
+      .cards.shared{grid-template-columns:1fr!important;}
+      .field{max-width:100%;}
+      .filters-wrap { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="nav-left" id="navLeft"></div>
+    <div class="nav-right"><button class="settings-btn" id="openSettings">Settings</button></div>
+  </div>
+  <h1 class="page-title">Utilities</h1>
+
+  <div style="text-align:center;margin-bottom:20px;"><button id="newCardBtn" class="btn">Add Card</button></div>
+
+  <section class="cards shared" id="notificationsArea"></section>
+  <section class="cards shared" id="sharedCards"></section>
+  <section class="cards" id="fullCards"></section>
+
+  <!-- Settings modal -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal">
+      <div class="controls-inline" style="justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <h3>Settings</h3>
+        <button class="icon-btn" id="closeSettings">✕</button>
+      </div>
+      <div class="stack">
+        <div><strong>File binding</strong></div>
+        <div class="controls-inline">
+          <button class="btn" id="bindFileBtn">Bind JSON file</button>
+          <button class="btn" id="reloadFileBtn">Reload</button>
+          <span class="chip" style="max-width:320px;">Status: <span id="fileStatus">not bound</span></span>
+        </div>
+        <p style="opacity:.8;margin-top:6px">If another page is already bound, this one auto-binds via BroadcastChannel or IndexedDB.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Card modal -->
+  <div class="modal-backdrop" id="cardBackdrop">
+    <div class="modal">
+      <div class="controls-inline" style="justify-content:space-between; align-items:center;">
+        <h3 id="cardModalTitle">Create new card</h3>
+        <button class="icon-btn" id="cardClose">✕</button>
+      </div>
+      <form id="cardForm" class="stack">
+        <!-- Title row -->
+        <div class="field">
+          <label>Title</label>
+          <input id="cf_title" type="text" class="input" placeholder="Card title" />
+        </div>
+        <!-- Layout row -->
+        <div class="field">
+          <label>Layout</label>
+          <select id="cf_layout" class="input">
+            <option value="shared">Shared</option>
+            <option value="full">Full</option>
+          </select>
+        </div>
+
+        <!-- Columns -->
+        <div>
+          <h3>Columns</h3>
+          <div id="cf_columns" class="editor-list"></div>
+          <div class="controls-inline"><button type="button" id="cf_addColumn" class="btn">+ Add column</button></div>
+        </div>
+
+        <!-- Badges -->
+        <div>
+          <h3>Badges</h3>
+          <div id="cf_badges" class="editor-list"></div>
+          <div class="controls-inline"><button type="button" id="cf_addBadge" class="btn">+ Add badge</button></div>
+        </div>
+
+        <!-- Filters -->
+        <div>
+          <h3>Filters</h3>
+          <div class="controls-inline" style="margin-bottom:8px;">
+            <input type="checkbox" id="cf_enableFilter" />
+            <label for="cf_enableFilter">Enable filters</label>
+          </div>
+          <div id="cf_filters" class="editor-list"></div>
+          <div class="controls-inline"><button type="button" id="cf_addFilter" class="btn">+ Add filter</button></div>
+        </div>
+
+        <!-- Notifications -->
+        <div>
+          <h3>Notifications</h3>
+          <div class="controls-inline" style="margin-bottom:8px;">
+            <input type="checkbox" id="cf_enableNotifications" />
+            <label for="cf_enableNotifications">Enable notifications</label>
+          </div>
+          <div id="cf_notificationsControls" class="stack" style="display:none;">
+            <div class="field"><label>Date column</label><select id="cf_notifyColumn" class="input"></select></div>
+            <div class="field"><label>Days before</label><input id="cf_notifyDaysBefore" type="number" class="input" min="0" value="1" /></div>
+          </div>
+        </div>
+
+        <div class="controls-inline" style="justify-content:flex-end;">
+          <button type="button" id="cf_cancel" class="btn">Cancel</button>
+          <button type="submit" id="cf_submit" class="btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Row modal -->
+  <div class="modal-backdrop" id="rowBackdrop">
+    <div class="modal">
+      <div class="controls-inline" style="justify-content:space-between; align-items:center;">
+        <h3 id="rowModalTitle">Edit row</h3>
+        <button class="icon-btn" id="rowClose">✕</button>
+      </div>
+      <form id="rowForm" class="stack">
+        <div id="rowFields" class="editor-list"></div>
+        <div class="controls-inline" style="justify-content:flex-end;">
+          <button type="button" id="rowCancel" class="btn">Cancel</button>
+          <button type="submit" id="rowSave" class="btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Context menus -->
+  <div id="cardContext" class="context-menu">
+    <button class="btn" data-action="add-row">Add row</button>
+    <button class="btn" data-action="edit-card">Edit card</button>
+    <button class="btn" data-action="delete-card">Delete card</button>
+  </div>
+  <div id="rowContext" class="context-menu">
+    <button class="btn" data-action="edit-row">Edit row</button>
+    <button class="btn" data-action="delete-row">Delete row</button>
+  </div>
+
+  <script>
+    /* ==== IndexedDB for file handle (tracker-compatible) ==== */
+    const DB_NAME = 'tracker-db';
+    const DB_STORE = 'file-handles';
+    function idbOpen() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = () => {
+          const db = req.result;
+          if (!db.objectStoreNames.contains(DB_STORE)) db.createObjectStore(DB_STORE);
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+    async function idbGet(key) {
+      const db = await idbOpen();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(DB_STORE, 'readonly'); const store = tx.objectStore(DB_STORE);
+        const req = store.get(key);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+    async function idbSet(key, value) {
+      const db = await idbOpen();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(DB_STORE, 'readwrite'); const store = tx.objectStore(DB_STORE);
+        const req = store.put(value, key);
+        req.onsuccess = () => resolve();
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    /* ==== BroadcastChannel (cross-tab announce/pickup) ==== */
+    const bindingChannel = new BroadcastChannel('tracker-binding');
+    bindingChannel.onmessage = (ev) => {
+      const msg = ev.data || {};
+      if (msg.type === 'announce-handle' && msg.handle) {
+        fileHandle = msg.handle;
+        autosaveEnabled = true;
+        updateAutosaveState();
+        reloadFromFile();
+      }
+      if (msg.type === 'ping' && fileHandle) {
+        bindingChannel.postMessage({ type: 'announce-handle', handle: fileHandle });
+      }
+    };
+    function announceHandle() { if (fileHandle) bindingChannel.postMessage({ type:'announce-handle', handle:fileHandle }); }
+    function requestHandle() { bindingChannel.postMessage({ type:'ping' }); }
+
+    /* ==== Data model (tracker-compatible + utilities) ==== */
+    const today = new Date();
+    const defaultData = {
+      version: 1,
+      ui: { fontSizes: { title: 20, th: 14, td: 14, icon: 18 } },
+      nav: [{ label: 'Home', url: 'home.html', id: 'home' }, { label:'Utilities', url:'utilities.html', id:'utilities' }],
+      filter: { month: today.getMonth()+1, year: today.getFullYear() },
+      entries: { income: [], expenses: [], personal: [] },
+      events: [],
+      vacationAllowance: {},
+      meta: { notes: '' },
+      utilities: { cards: [] }
+    };
+    let data = structuredClone ? structuredClone(defaultData) : JSON.parse(JSON.stringify(defaultData));
+    let fileHandle = null;
+    let autosaveEnabled = false;
+
+    /* ==== Autosave indicator ==== */
+    async function updateAutosaveState() {
+      const a = document.getElementById('autosaveState');
+      if (a) a.textContent = autosaveEnabled ? 'bound' : 'unbound';
+      const fs = document.getElementById('fileStatus');
+      if (fs) fs.textContent = autosaveEnabled ? 'bound' : 'not bound';
+    }
+
+    /* ==== Merge helpers ==== */
+    function deepMerge(tgt, src) {
+      Object.keys(src || {}).forEach(k => {
+        const sv = src[k];
+        if (sv && typeof sv === 'object' && !Array.isArray(sv)) {
+          tgt[k] ||= {};
+          deepMerge(tgt[k], sv);
+        } else {
+          tgt[k] = sv;
+        }
+      });
+    }
+    function ensureCoreStructures(obj) {
+      obj.ui ||= defaultData.ui;
+      obj.nav ||= [{label:'Home',url:'home.html',id:'home'}];
+      obj.filter ||= { month: today.getMonth()+1, year: today.getFullYear() };
+      obj.entries ||= {};
+      obj.entries.income ||= [];
+      obj.entries.expenses ||= [];
+      obj.entries.personal ||= [];
+      obj.events ||= [];
+      obj.vacationAllowance ||= {};
+      obj.meta ||= { notes: '' };
+      obj.utilities ||= { cards: [] };
+      obj.utilities.cards ||= [];
+      return obj;
+    }
+
+    async function writeFile(obj) {
+      const writable = await fileHandle.createWritable();
+      await writable.write(JSON.stringify(obj, null, 2));
+      await writable.close();
+    }
+
+    /* ==== File binding and I/O ==== */
+    async function bindFilePicker() {
+      try {
+        const [fh] = await window.showOpenFilePicker({
+          types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+          multiple: false
+        });
+        fileHandle = fh;
+        await idbSet('trackerFileHandle', fileHandle);
+        autosaveEnabled = true;
+        announceHandle();
+        await reloadFromFile();
+        await updateAutosaveState();
+      } catch (e) { /* user canceled or error */ }
+    }
+
+    async function reloadFromFile() {
+      if (!fileHandle) {
+        const stored = await idbGet('trackerFileHandle');
+        if (stored) fileHandle = stored;
+      }
+      if (!fileHandle) { requestHandle(); return; }
+
+      try {
+        const file = await fileHandle.getFile();
+        const text = await file.text();
+        let parsed;
+        try { parsed = JSON.parse(text || '{}'); } catch { parsed = {}; }
+        if (!parsed || Object.keys(parsed).length === 0) {
+          parsed = structuredClone ? structuredClone(defaultData) : JSON.parse(JSON.stringify(defaultData));
+          await writeFile(parsed);
+        }
+        const merged = ensureCoreStructures(structuredClone ? structuredClone(defaultData) : JSON.parse(JSON.stringify(defaultData)));
+        deepMerge(merged, parsed);
+        data = merged;
+
+        hydrateUI();
+        renderAll();
+        autosaveEnabled = true;
+        await updateAutosaveState();
+      } catch (e) {
+        alert('Failed to reload tracker.json. You may need to re-bind the file.');
+      }
+    }
+
+    async function saveToFile() {
+      if (!autosaveEnabled || !fileHandle) return;
+      try {
+        const file = await fileHandle.getFile();
+        const currentText = await file.text().catch(()=> '{}');
+        let current = {};
+        try { current = JSON.parse(currentText || '{}'); } catch { current = {}; }
+        current = ensureCoreStructures(current);
+
+        const merged = (structuredClone ? structuredClone(current) : JSON.parse(JSON.stringify(current)));
+        deepMerge(merged, data);
+        await writeFile(merged);
+      } catch (e) {
+        autosaveEnabled = false;
+        await updateAutosaveState();
+      }
+    }
+
+    /* ==== Settings modal ==== */
+    const settingsModal = document.getElementById('settingsModal');
+    document.getElementById('openSettings').addEventListener('click', () => { updateAutosaveState(); settingsModal.style.display = 'flex'; });
+    document.getElementById('closeSettings').addEventListener('click', () => { settingsModal.style.display = 'none'; });
+    document.getElementById('bindFileBtn').addEventListener('click', bindFilePicker);
+    document.getElementById('reloadFileBtn').addEventListener('click', reloadFromFile);
+
+    /* ==== Navigation ==== */
+    function renderNav() {
+      const wrap = document.getElementById('navLeft'); wrap.innerHTML = '';
+      (data.nav||[]).forEach(btn => {
+        const el = document.createElement('button');
+        el.className = 'nav-btn' + (isActiveNav(btn) ? ' active' : '');
+        el.innerHTML = btn.label === 'Home' ? '←' : btn.label;
+        el.addEventListener('click', () => {
+          document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+          el.classList.add('active');
+          if (btn.label === 'Home') location.href = 'home.html';
+          else if (btn.url) location.href = btn.url;
+        });
+        wrap.appendChild(el);
+      });
+    }
+    function isActiveNav(btn) {
+      const cur = location.pathname.split('/').pop()||''; const target = btn.url?btn.url.split('/').pop():'';
+      return cur&&target&&cur===target;
+    }
+
+    /* ==== Cards: editor state ==== */
+    const cardBackdrop = document.getElementById('cardBackdrop');
+    const cardForm = document.getElementById('cardForm');
+    const cardModalTitle = document.getElementById('cardModalTitle');
+    const cardClose = document.getElementById('cardClose');
+    const cfTitle = document.getElementById('cf_title');
+    const cfLayout = document.getElementById('cf_layout');
+    const cfColumnsWrap = document.getElementById('cf_columns');
+    const cfBadgesWrap = document.getElementById('cf_badges');
+    const cfAddColumn = document.getElementById('cf_addColumn');
+    const cfAddBadge = document.getElementById('cf_addBadge');
+    const cfCancel = document.getElementById('cf_cancel');
+    const cfSubmit = document.getElementById('cf_submit');
+
+    const cfEnableFilter = document.getElementById('cf_enableFilter');
+    const cfFiltersWrap = document.getElementById('cf_filters');
+    const cfAddFilter = document.getElementById('cf_addFilter');
+
+    const cfEnableNotifications = document.getElementById('cf_enableNotifications');
+    const cfNotificationsControls = document.getElementById('cf_notificationsControls');
+    const cfNotifyColumn = document.getElementById('cf_notifyColumn');
+    const cfNotifyDaysBefore = document.getElementById('cf_notifyDaysBefore');
+
+    let formMode = 'create'; let editingCardId = null;
+    let tempColumns = []; let tempBadges = []; let tempFilters = [];
+
+    document.getElementById('newCardBtn').addEventListener('click', () => openCardModalCreate());
+    cfCancel.addEventListener('click', () => { cardBackdrop.style.display = 'none'; cardForm.reset(); });
+    cardClose.addEventListener('click', () => { cardBackdrop.style.display = 'none'; cardForm.reset(); });
+
+    cfEnableNotifications.addEventListener('change', () => {
+      cfNotificationsControls.style.display = cfEnableNotifications.checked ? 'flex' : 'none';
+      refreshNotifyColumnOptions();
+    });
+
+    cfAddColumn.addEventListener('click', () => {
+      tempColumns.push({ id: crypto.randomUUID(), title: 'New column', kind: 'text', visible: true, recurrence: { type:'none' } });
+      renderColumnsEditor(); refreshNotifyColumnOptions(); saveToFile();
+    });
+    cfAddBadge.addEventListener('click', () => {
+      tempBadges.push({ id: crypto.randomUUID(), title: 'New badge', calc: { op:'sum', column:null } });
+      renderBadgesEditor(); saveToFile();
+    });
+    cfAddFilter.addEventListener('click', () => {
+      const dateCol = tempColumns.find(c => c.kind==='date');
+      tempFilters.push({
+        id: crypto.randomUUID(),
+        title: 'Month',
+        type: 'month',
+        column: dateCol?.id || tempColumns[0]?.id || null,
+        default: 'current' /* or 'all' */
+      });
+      renderFiltersEditor(); saveToFile();
+    });
+
+    cardForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = (cfTitle.value || '').trim(); if (!title) { alert('Please set a title'); return; }
+      const cardObj = {
+        id: formMode === 'create' ? crypto.randomUUID() : editingCardId,
+        title,
+        layout: cfLayout.value || 'shared',
+        columns: tempColumns.slice(),
+        badges: tempBadges.slice(),
+        filters: {
+          enabled: cfEnableFilter.checked,
+          criteria: tempFilters.slice(),
+          active: formMode==='edit'
+            ? (getCardById(editingCardId)?.filters?.active || Object.fromEntries(tempFilters.map(f=>[f.id,null])))
+            : Object.fromEntries(tempFilters.map(f=>[f.id,null]))
+        },
+        notifications: {
+          enabled: cfEnableNotifications.checked,
+          column: cfEnableNotifications.checked ? (cfNotifyColumn.value || null) : null,
+          daysBefore: cfEnableNotifications.checked ? Number(cfNotifyDaysBefore.value || 1) : 0
+        },
+        rows: formMode==='edit' ? (getCardById(editingCardId)?.rows || []) : []
+      };
+      data.utilities = data.utilities || { cards: [] };
+      data.utilities.cards = data.utilities.cards || [];
+      if (formMode === 'create') {
+        data.utilities.cards.push(cardObj);
+      } else {
+        const idx = data.utilities.cards.findIndex(c => c.id === editingCardId);
+        if (idx !== -1) data.utilities.cards[idx] = cardObj;
+      }
+      saveToFile();
+      cardBackdrop.style.display = 'none';
+      renderAll();
+    });
+
+    function openCardModalCreate() {
+      formMode = 'create'; editingCardId = null;
+      cardModalTitle.textContent = 'Create new card'; cfSubmit.textContent = 'Save';
+      cfTitle.value = ''; cfLayout.value = 'shared';
+      cfEnableFilter.checked = false; cfEnableNotifications.checked = false; cfNotificationsControls.style.display = 'none';
+      tempColumns = [
+        { id: crypto.randomUUID(), title:'Title', kind:'text', visible:true, recurrence:{type:'none'} },
+        { id: crypto.randomUUID(), title:'Amount', kind:'number', visible:true, recurrence:{type:'none'} }
+      ];
+      tempBadges = []; tempFilters = [];
+      renderColumnsEditor(); renderBadgesEditor(); renderFiltersEditor(); refreshNotifyColumnOptions();
+      cardBackdrop.style.display = 'flex';
+    }
+    function openCardModalEdit(card) {
+      formMode = 'edit'; editingCardId = card.id;
+      cardModalTitle.textContent = 'Edit card'; cfSubmit.textContent = 'Save';
+      cfTitle.value = card.title; cfLayout.value = card.layout || 'shared';
+      cfEnableFilter.checked = !!card.filters?.enabled; cfEnableNotifications.checked = !!card.notifications?.enabled;
+      cfNotificationsControls.style.display = cfEnableNotifications.checked ? 'flex' : 'none';
+      tempColumns = (card.columns || []).map(c => ({ ...c, recurrence: c.recurrence || { type:'none' }, visible: c.visible !== false }));
+      tempBadges = (card.badges || []).map(b => ({ id:b.id, title:b.title, calc:{ ...b.calc } }));
+      tempFilters = (card.filters?.criteria || []).map(f => ({ ...f }));
+      renderColumnsEditor(); renderBadgesEditor(); renderFiltersEditor(); refreshNotifyColumnOptions();
+      if (card.notifications?.column) cfNotifyColumn.value = card.notifications.column;
+      cfNotifyDaysBefore.value = Number(card.notifications?.daysBefore || 1);
+      cardBackdrop.style.display = 'flex';
+    }
+
+    function renderColumnsEditor() {
+      cfColumnsWrap.innerHTML = '';
+      tempColumns.forEach((c, idx) => {
+        const isDate = c.kind === 'date';
+        const item = document.createElement('div'); item.className = 'editor-item';
+        item.innerHTML = `
+          <div class="stack-row">
+            <div class="field"><label>Title</label><input data-id="${c.id}" class="input col-title" value="${c.title}"/></div>
+            <div class="field"><label>Type</label>
+              <select data-id="${c.id}" class="input col-kind">
+                <option value="text" ${c.kind==='text'?'selected':''}>Text</option>
+                <option value="number" ${c.kind==='number'?'selected':''}>Number</option>
+                <option value="date" ${c.kind==='date'?'selected':''}>Date</option>
+              </select>
+            </div>
+            <div class="field"><label>Visible</label>
+              <select data-id="${c.id}" class="input col-visible">
+                <option value="true" ${c.visible!==false?'selected':''}>Visible</option>
+                <option value="false" ${c.visible===false?'selected':''}>Hidden</option>
+              </select>
+            </div>
+          </div>
+          ${isDate ? `
+          <div class="stack-row">
+            <div class="field"><label>Recurrence</label>
+              <select data-id="${c.id}" class="input col-recur">
+                <option value="none" ${(c.recurrence?.type||'none')==='none'?'selected':''}>None</option>
+                <option value="monthly" ${(c.recurrence?.type||'none')==='monthly'?'selected':''}>Monthly</option>
+                <option value="yearly" ${(c.recurrence?.type||'none')==='yearly'?'selected':''}>Yearly</option>
+              </select>
+            </div>
+          </div>` : ''}
+          <div class="controls-inline" style="justify-content:flex-end;">
+            <button type="button" data-idx="${idx}" class="btn col-up">↑</button>
+            <button type="button" data-idx="${idx}" class="btn col-del">✕</button>
+          </div>
+        `;
+        cfColumnsWrap.appendChild(item);
+      });
+
+      // Bind events
+      cfColumnsWrap.querySelectorAll('.col-title').forEach(el => el.addEventListener('input', () => {
+        const col=tempColumns.find(c=>c.id===el.dataset.id); if (col) col.title=el.value; saveToFile();
+      }));
+      cfColumnsWrap.querySelectorAll('.col-kind').forEach(el => el.addEventListener('change', () => {
+        const col=tempColumns.find(c=>c.id===el.dataset.id);
+        if (col) {
+          col.kind=el.value;
+          if (el.value==='date' && !col.recurrence) col.recurrence={type:'none'};
+          renderColumnsEditor(); // show/hide recurrence immediately
+          refreshNotifyColumnOptions();
+          saveToFile();
+        }
+      }));
+      cfColumnsWrap.querySelectorAll('.col-visible').forEach(el => el.addEventListener('change', () => {
+        const col=tempColumns.find(c=>c.id===el.dataset.id); if (col) { col.visible=(el.value==='true'); saveToFile(); }
+      }));
+      cfColumnsWrap.querySelectorAll('.col-recur').forEach(el => el.addEventListener('change', () => {
+        const col=tempColumns.find(c=>c.id===el.dataset.id); if (col) { col.recurrence={type:el.value}; saveToFile(); }
+      }));
+      cfColumnsWrap.querySelectorAll('.col-up').forEach(el => el.addEventListener('click', () => {
+        const i=Number(el.dataset.idx); if (i>0) [tempColumns[i-1], tempColumns[i]]=[tempColumns[i], tempColumns[i-1]];
+        renderColumnsEditor(); refreshNotifyColumnOptions(); saveToFile();
+      }));
+      cfColumnsWrap.querySelectorAll('.col-del').forEach(el => el.addEventListener('click', () => {
+        const i=Number(el.dataset.idx); tempColumns.splice(i,1); renderColumnsEditor(); refreshNotifyColumnOptions(); saveToFile();
+      }));
+    }
+
+    function renderBadgesEditor() {
+      cfBadgesWrap.innerHTML = '';
+      tempBadges.forEach((b, idx) => {
+        const item = document.createElement('div'); item.className = 'editor-item';
+        item.innerHTML = `
+          <div class="stack-row">
+            <div class="field"><label>Title</label><input data-id="${b.id}" class="input badge-title" value="${b.title}" /></div>
+            <div class="field"><label>Operation</label>
+              <select data-id="${b.id}" class="input badge-op">
+                <option value="sum" ${b.calc.op==='sum'?'selected':''}>Sum</option>
+                <option value="avg" ${b.calc.op==='avg'?'selected':''}>Average</option>
+                <option value="min" ${b.calc.op==='min'?'selected':''}>Min</option>
+                <option value="max" ${b.calc.op==='max'?'selected':''}>Max</option>
+                <option value="count" ${b.calc.op==='count'?'selected':''}>Count</option>
+              </select>
+            </div>
+            <div class="field"><label>Column</label>
+              <select data-id="${b.id}" class="input badge-col">
+                <option value="">Select column</option>
+                ${tempColumns.map(c=>`<option value="${c.id}" ${b.calc.column===c.id?'selected':''}>${c.title}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+          <div class="controls-inline" style="justify-content:flex-end;">
+            <button type="button" data-idx="${idx}" class="btn badge-del">✕</button>
+          </div>
+        `;
+        cfBadgesWrap.appendChild(item);
+      });
+      cfBadgesWrap.querySelectorAll('.badge-title').forEach(el => el.addEventListener('input', () => { const b=tempBadges.find(x=>x.id===el.dataset.id); if (b) b.title=el.value; saveToFile(); }));
+      cfBadgesWrap.querySelectorAll('.badge-op').forEach(el => el.addEventListener('change', () => { const b=tempBadges.find(x=>x.id===el.dataset.id); if (b) b.calc.op=el.value; saveToFile(); }));
+      cfBadgesWrap.querySelectorAll('.badge-col').forEach(el => el.addEventListener('change', () => { const b=tempBadges.find(x=>x.id===el.dataset.id); if (b) b.calc.column = el.value || null; saveToFile(); }));
+      cfBadgesWrap.querySelectorAll('.badge-del').forEach(el => el.addEventListener('click', () => { tempBadges.splice(Number(el.dataset.idx),1); renderBadgesEditor(); saveToFile(); }));
+    }
+
+    function renderFiltersEditor() {
+      cfFiltersWrap.innerHTML = '';
+      tempFilters.forEach((f, idx) => {
+        const item = document.createElement('div'); item.className = 'editor-item';
+        item.innerHTML = `
+          <div class="stack-row">
+            <div class="field"><label>Title</label><input class="input filter-title" data-id="${f.id}" value="${f.title}" /></div>
+            <div class="field"><label>Type</label>
+              <select class="input filter-type" data-id="${f.id}">
+                <option value="month" ${f.type==='month'?'selected':''}>Month</option>
+                <option value="year" ${f.type==='year'?'selected':''}>Year</option>
+              </select>
+            </div>
+            <div class="field"><label>Date column</label>
+              <select class="input filter-column" data-id="${f.id}">
+                ${tempColumns.map(c=>`<option value="${c.id}" ${f.column===c.id?'selected':''}>${c.title}</option>`).join('')}
+              </select>
+            </div>
+            <div class="field"><label>Default</label>
+              <select class="input filter-default" data-id="${f.id}">
+                <option value="current" ${f.default==='current'?'selected':''}>Current</option>
+                <option value="all" ${(!f.default || f.default==='all')?'selected':''}>All</option>
+              </select>
+            </div>
+          </div>
+          <div class="controls-inline" style="justify-content:flex-end;">
+            <button type="button" data-idx="${idx}" class="btn filter-del">✕ Remove</button>
+          </div>
+        `;
+        cfFiltersWrap.appendChild(item);
+      });
+      cfFiltersWrap.querySelectorAll('.filter-title').forEach(el => el.addEventListener('input', () => { const f=tempFilters.find(x=>x.id===el.dataset.id); if (f) f.title=el.value; saveToFile(); }));
+      cfFiltersWrap.querySelectorAll('.filter-type').forEach(el => el.addEventListener('change', () => { const f=tempFilters.find(x=>x.id===el.dataset.id); if (f) f.type=el.value; saveToFile(); }));
+      cfFiltersWrap.querySelectorAll('.filter-column').forEach(el => el.addEventListener('change', () => { const f=tempFilters.find(x=>x.id===el.dataset.id); if (f) f.column=el.value; saveToFile(); }));
+      cfFiltersWrap.querySelectorAll('.filter-default').forEach(el => el.addEventListener('change', () => { const f=tempFilters.find(x=>x.id===el.dataset.id); if (f) f.default=el.value; saveToFile(); }));
+      cfFiltersWrap.querySelectorAll('.filter-del').forEach(el => el.addEventListener('click', () => { tempFilters.splice(Number(el.dataset.idx),1); renderFiltersEditor(); saveToFile(); }));
+    }
+
+    function refreshNotifyColumnOptions() {
+      cfNotifyColumn.innerHTML = tempColumns.filter(c => c.kind==='date')
+        .map(c => `<option value="${c.id}">${c.title}</option>`).join('');
+    }
+
+    /* ==== Build + render cards ==== */
+    function getCardById(id){ return (data.utilities.cards||[]).find(c=>c.id===id); }
+    function hydrateUI(){ renderNav(); }
+    function renderAll() { renderNotificationsArea(); renderCards(); }
+
+    function renderCards() {
+      const shared = document.getElementById('sharedCards');
+      const full = document.getElementById('fullCards');
+      shared.innerHTML=''; full.innerHTML='';
+
+      const allCards = Array.isArray(data.utilities?.cards) ? data.utilities.cards : [];
+      const sharedCards = allCards.filter(c => (c.layout||'shared') === 'shared');
+      const fullCards   = allCards.filter(c => c.layout === 'full');
+
+      sharedCards.forEach(card => shared.appendChild(buildCardEl(card)));
+      fullCards.forEach(card => full.appendChild(buildCardEl(card)));
+    }
+
+    function buildCardEl(card) {
+      const cardEl = document.createElement('div');
+      cardEl.className = 'card' + ((card.layout||'shared')==='full' ? ' full' : '');
+      cardEl.dataset.cardId = card.id;
+
+      const header = document.createElement('div'); header.className='card-header';
+      const title = document.createElement('div'); title.className='card-title'; title.textContent = card.title || '(untitled)';
+      const actions = document.createElement('div'); actions.className='card-actions'; actions.innerHTML = renderBadgesHTML(card);
+      header.appendChild(title); header.appendChild(actions); cardEl.appendChild(header);
+
+      if (card.filters?.enabled && (card.filters.criteria||[]).length) {
+        const filtersEl = document.createElement('div'); filtersEl.className='filters-wrap';
+        card.filters.criteria.forEach(f => {
+          const wrap = document.createElement('div'); wrap.className='filters-row';
+          wrap.innerHTML = `<label>${f.title}</label>${renderFilterControlHTML(f, card)}`;
+          filtersEl.appendChild(wrap);
+        });
+        cardEl.appendChild(filtersEl);
+      }
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead'); const trh=document.createElement('tr');
+      const displayColumns = (card.columns||[]).filter(c => c.visible!==false);
+      displayColumns.forEach(c => { const th=document.createElement('th'); th.textContent=c.title; trh.appendChild(th); });
+      thead.appendChild(trh); table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      const rows = applyFilters(card);
+      rows.forEach(r => {
+        const tr = document.createElement('tr'); tr.dataset.rowId=r.id;
+        displayColumns.forEach(c => {
+          const td=document.createElement('td'); td.textContent = formatCell(r.cells?.[c.id], c.kind, c.recurrence); tr.appendChild(td);
+        });
+        tr.addEventListener('contextmenu', (e)=>{ e.preventDefault(); e.stopPropagation(); openRowContext(e.clientX,e.clientY,card.id,r.id); });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody); cardEl.appendChild(table);
+
+      cardEl.addEventListener('contextmenu', (e)=>{ const isRow=e.target.closest('tr'); if (isRow) return; e.preventDefault(); openCardContext(e.clientX,e.clientY,card.id); });
+      return cardEl;
+    }
+
+    function formatCell(val, kind, recur) {
+      if (val === null || val === undefined) return '';
+      if (kind === 'number') return String(val);
+      if (kind === 'date') {
+        const type = recur?.type || 'none';
+        if (type === 'monthly') {
+          const day = typeof val === 'object' ? val?.day : Number(val);
+          return day ? `Day ${day}` : '';
+        }
+        if (type === 'yearly') {
+          const m = val?.month, d = val?.day;
+          return (m && d) ? `Month ${m}, Day ${d}` : '';
+        }
+        const d = new Date(val); return isNaN(d) ? '' : d.toISOString().slice(0,10);
+      }
+      return String(val);
+    }
+
+    /* ==== Badges ==== */
+    function renderBadgesHTML(card) {
+      if (!card.badges || !card.badges.length) return '';
+      const values = computeBadgeValues(card);
+      return card.badges.map(b => `<span class="chip"><strong>${b.title}:</strong> ${formatBadgeValue(b.calc.op, values[b.id])}</span>`).join(' ');
+    }
+    function computeBadgeValues(card) {
+  const filteredRows = applyFilters(card); // use active filters
+  const out = {};
+
+  (card.badges || []).forEach(b => {
+    const op = b.calc.op;
+    const colId = b.calc.column;
+    const values = filteredRows.map(r => r.cells?.[colId]).filter(v => v !== undefined && v !== null);
+
+    const numeric = values.map(v => typeof v === 'number' ? v : Number(v)).filter(v => !isNaN(v));
+    let result = null;
+
+    if (op === 'sum') result = numeric.reduce((a, c) => a + c, 0);
+    else if (op === 'avg') result = numeric.length ? numeric.reduce((a, c) => a + c, 0) / numeric.length : 0;
+    else if (op === 'min') result = numeric.length ? Math.min(...numeric) : null;
+    else if (op === 'max') result = numeric.length ? Math.max(...numeric) : null;
+    else if (op === 'count') result = values.length;
+
+    out[b.id] = result;
+  });
+
+  return out;
+}
+
+    function formatBadgeValue(op,v){ if (v===null||v===undefined) return '-'; if (op==='avg'||op==='sum') return Number(v).toFixed(2); return String(v); }
+
+    /* ==== Filters ==== */
+    function renderFilterControlHTML(f, card) {
+      let active = card.filters.active?.[f.id] ?? null;
+      const col = (card.columns||[]).find(c=>c.id===f.column);
+      if (!col || col.kind!=='date') return `<input class="input" value="(date filters only)" disabled />`;
+
+      if (f.type==='month') {
+        const months=Array.from({length:12},(_,i)=>i+1);
+        if (active===null) {
+          active = f.default==='current' ? (new Date()).getMonth()+1 : '';
+          card.filters.active[f.id] = active;
+        }
+        return `<select data-card="${card.id}" data-filter="${f.id}" class="input filter-dd">
+          <option value="">All</option>
+          ${months.map(m=>`<option value="${m}" ${String(active)===String(m)?'selected':''}>${m}</option>`).join('')}
+        </select>`;
+      }
+
+      if (f.type==='year') {
+        const years=collectYears(card,f.column);
+        if (active===null) {
+          active = f.default==='current' ? (new Date()).getFullYear() : '';
+          card.filters.active[f.id] = active;
+        }
+        return `<select data-card="${card.id}" data-filter="${f.id}" class="input filter-dd">
+          <option value="">All</option>
+          ${years.map(y=>`<option value="${y}" ${String(active)===String(y)?'selected':''}>${y}</option>`).join('')}
+        </select>`;
+      }
+      return '';
+    }
+    function collectYears(card, columnId){
+      const years=new Set(); (card.rows||[]).forEach(r=>{
+        const v=r.cells?.[columnId]; const d=v?new Date(v):null; if (d && !isNaN(d)) years.add(d.getFullYear());
+      });
+      const currentYear=(new Date()).getFullYear();
+      if (!years.size) years.add(currentYear);
+      return Array.from(years).sort((a,b)=>a-b);
+    }
+    document.addEventListener('change', (e) => {
+      const el=e.target;
+      if (el.classList.contains('filter-dd')) {
+        const cardId=el.dataset.card; const filterId=el.dataset.filter; const card=getCardById(cardId);
+        if (!card) return; card.filters.active[filterId]=el.value||null; saveToFile(); renderAll();
+      }
+    });
+    function applyFilters(card) {
+      if (!card.filters?.enabled || !card.filters.criteria?.length) return card.rows || [];
+      return (card.rows||[]).filter(r=>{
+        return card.filters.criteria.every(f=>{
+          const val=card.filters.active?.[f.id];
+          if (val===null||val===''||val===undefined) return true;
+          const cell=r.cells?.[f.column];
+          const col=(card.columns||[]).find(c=>c.id===f.column); if (!col || col.kind!=='date') return true;
+          const d=cell?new Date(cell):null; if (!d || isNaN(d)) return false;
+          if (f.type==='month') return (d.getMonth()+1)==Number(val);
+          if (f.type==='year')  return d.getFullYear()==Number(val);
+          return true;
+        });
+      });
+    }
+
+    /* ==== Notifications ==== */
+    function renderNotificationsArea(){
+      const area=document.getElementById('notificationsArea'); area.innerHTML='';
+      const items=collectNotifications(); if (!items.length) return;
+      const card=document.createElement('div'); card.className='card';
+      const header=document.createElement('div'); header.className='card-header';
+      header.innerHTML=`<div class="card-title">Notifications</div>`;
+      card.appendChild(header);
+      const wrap=document.createElement('div'); wrap.className='stack';
+      items.forEach(n=>{
+        const chip=document.createElement('div'); chip.className='chip';
+        chip.innerHTML=`<strong>${n.cardTitle}:</strong> ${n.rowSummary} — due ${n.dateStr}`;
+        wrap.appendChild(chip);
+      });
+      card.appendChild(wrap); area.appendChild(card);
+    }
+    function collectNotifications(){
+      const today=new Date();
+      return (data.utilities.cards||[]).flatMap(card=>{
+        const notif=card.notifications; if (!notif?.enabled || !notif.column) return [];
+        const days=Number(notif.daysBefore||0);
+        const dateCol=(card.columns||[]).find(c=>c.id===notif.column); if (!dateCol || dateCol.kind!=='date') return [];
+        return (card.rows||[]).flatMap(r=>{
+          const v=r.cells?.[notif.column]; if (!v) return [];
+          let dueDate;
+          if ((dateCol.recurrence?.type||'none')==='monthly'){
+            const day=v?.day || Number(v); if (!day) return []; dueDate=new Date(today.getFullYear(), today.getMonth(), day);
+          } else if ((dateCol.recurrence?.type||'none')==='yearly'){
+            const m=v?.month, d=v?.day; if (!m||!d) return []; dueDate=new Date(today.getFullYear(), m-1, d);
+          } else {
+            dueDate=new Date(v); if (isNaN(dueDate)) return [];
+          }
+          const diffDays=Math.ceil((dueDate-today)/(1000*60*60*24));
+          if (diffDays<=days && diffDays>=0){
+            const rowSummary=summarizeRow(card,r);
+            const dateStr=(dateCol.recurrence?.type==='none') ? dueDate.toISOString().slice(0,10) : formatCell(v,'date',dateCol.recurrence);
+            return [{ cardId:card.id, cardTitle:card.title, rowSummary, dateStr }];
+          }
+          return [];
+        });
+      });
+    }
+    function summarizeRow(card,row){
+      const firstText=(card.columns||[]).find(c=>c.kind==='text')||card.columns?.[0];
+      const txt=row.cells?.[firstText?.id]; return txt?String(txt):`Row ${row.id}`;
+    }
+
+    /* ==== Context menus + Row modal ==== */
+    function openCardContext(x,y,cardId){
+      const cm=document.getElementById('cardContext');
+      cm.style.left=x+'px'; cm.style.top=y+'px'; cm.style.display='block'; cm.dataset.cardId=cardId;
+    }
+    document.getElementById('cardContext').addEventListener('click',(e)=>{
+      const action=e.target.dataset.action; const cm=e.currentTarget; const cardId=cm.dataset.cardId; if (!action||!cardId) return;
+      const card=getCardById(cardId);
+      if (!card) return;
+      if (action==='add-row') openRowModalCreate(cardId);
+      else if (action==='edit-card') openCardModalEdit(card);
+      else if (action==='delete-card'){
+        if (confirm('Delete this card?')){
+          data.utilities.cards=(data.utilities.cards||[]).filter(c=>c.id!==cardId); saveToFile(); renderAll();
+        }
+      }
+      cm.style.display='none';
+    });
+
+    function openRowContext(x,y,cardId,rowId){
+      const m=document.getElementById('rowContext');
+      m.style.left=x+'px'; m.style.top=y+'px'; m.style.display='block';
+      m.dataset.cardId=cardId; m.dataset.rowId=rowId;
+    }
+    document.getElementById('rowContext').addEventListener('click',(e)=>{
+      const action=e.target.dataset.action; const m=e.currentTarget; const {cardId,rowId}=m.dataset; if (!action||!cardId||!rowId) return;
+      const card=getCardById(cardId); const row=card?.rows?.find(r=>r.id===rowId);
+      if (!row) return;
+      if (action==='edit-row') openRowModalEdit(cardId,row);
+      else if (action==='delete-row'){
+        if (confirm('Delete row?')){
+          const idx=card.rows.findIndex(r=>r.id===rowId);
+          if (idx>=0){ card.rows.splice(idx,1); saveToFile(); renderAll(); }
+        }
+      }
+      m.style.display='none';
+    });
+    document.addEventListener('click',(e)=>{
+      const cm1=document.getElementById('cardContext'); const cm2=document.getElementById('rowContext');
+      if (cm1 && cm1.style.display==='block' && !cm1.contains(e.target)) cm1.style.display='none';
+      if (cm2 && cm2.style.display==='block' && !cm2.contains(e.target)) cm2.style.display='none';
+    });
+
+    const rowBackdrop=document.getElementById('rowBackdrop');
+    const rowForm=document.getElementById('rowForm');
+    const rowFields=document.getElementById('rowFields');
+    const rowModalTitle=document.getElementById('rowModalTitle');
+    const rowClose=document.getElementById('rowClose');
+    const rowCancel=document.getElementById('rowCancel');
+    let rowMode='create', rowCardId=null, editingRowId=null;
+
+    rowCancel.addEventListener('click', ()=>{ rowBackdrop.style.display='none'; rowForm.reset(); });
+    rowClose.addEventListener('click', ()=>{ rowBackdrop.style.display='none'; rowForm.reset(); });
+
+    rowForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const card=getCardById(rowCardId); if (!card) return;
+      const cells={};
+      for (const c of (card.columns||[])){
+        if (c.kind==='number'){
+          const val=rowForm.querySelector(`[name="col-${c.id}-num"]`)?.value||''; cells[c.id]=val===''?null:Number(val);
+        } else if (c.kind==='date'){
+          const recur=c.recurrence?.type||'none';
+          if (recur==='monthly'){
+            const day=rowForm.querySelector(`[name="col-${c.id}-day"]`)?.value||null;
+            cells[c.id]=day?{day:Number(day)}:null;
+          } else if (recur==='yearly'){
+            const m=rowForm.querySelector(`[name="col-${c.id}-month"]`)?.value||null;
+            const d=rowForm.querySelector(`[name="col-${c.id}-day"]`)?.value||null;
+            cells[c.id]=(m&&d)?{month:Number(m),day:Number(d)}:null;
+          } else {
+            const val=rowForm.querySelector(`[name="col-${c.id}-date"]`)?.value||''; cells[c.id]=val?new Date(val).toISOString():null;
+          }
+        } else {
+          const val=rowForm.querySelector(`[name="col-${c.id}-text"]`)?.value||''; cells[c.id]=val||null;
+        }
+      }
+      if (rowMode==='create') card.rows.push({ id: crypto.randomUUID(), cells });
+      else { const idx=card.rows.findIndex(r=>r.id===editingRowId); if (idx!==-1) card.rows[idx]={ id: editingRowId, cells }; }
+      saveToFile(); rowBackdrop.style.display='none'; renderAll();
+    });
+    function openRowModalCreate(cardId){ rowMode='create'; rowCardId=cardId; editingRowId=null; rowModalTitle.textContent='Add row'; buildRowFields(getCardById(cardId), null); rowBackdrop.style.display='flex'; }
+    function openRowModalEdit(cardId,row){ rowMode='edit'; rowCardId=cardId; editingRowId=row.id; rowModalTitle.textContent='Edit row'; buildRowFields(getCardById(cardId), row); rowBackdrop.style.display='flex'; }
+    function buildRowFields(card,row){
+      rowFields.innerHTML='';
+      (card.columns||[]).forEach(c=>{
+        const item=document.createElement('div'); item.className='editor-item';
+        let html=`<div class="field"><label>${c.title}</label>`;
+        if (c.kind==='date'){
+          const recur=c.recurrence?.type||'none';
+          if (recur==='monthly'){
+            const val=row?.cells?.[c.id]?.day||''; html+=`<input class="input" type="number" min="1" max="31" name="col-${c.id}-day" value="${val}" placeholder="Day (1–31)" />`;
+          } else if (recur==='yearly'){
+            const m=row?.cells?.[c.id]?.month||''; const d=row?.cells?.[c.id]?.day||'';
+            html+=`<div class="controls-inline"><input class="input" style="max-width:180px" type="number" min="1" max="12" name="col-${c.id}-month" value="${m}" placeholder="Month (1–12)" /><input class="input" style="max-width:180px" type="number" min="1" max="31" name="col-${c.id}-day" value="${d}" placeholder="Day (1–31)" /></div>`;
+          } else {
+            const preset=row?.cells?.[c.id]?new Date(row.cells[c.id]).toISOString().slice(0,10):''; html+=`<input class="input" type="date" name="col-${c.id}-date" value="${preset}" />`;
+          }
+        } else if (c.kind==='number'){
+          const val=row?.cells?.[c.id]??''; html+=`<input class="input" type="number" step="any" name="col-${c.id}-num" value="${val}" />`;
+        } else {
+          const val=row?.cells?.[c.id]??''; html+=`<input class="input" type="text" name="col-${c.id}-text" value="${val}" />`;
+        }
+        html+=`</div>`; item.innerHTML=html; rowFields.appendChild(item);
+      });
+    }
+
+    /* ==== Init ==== */
+    (async function init(){
+      renderNav();
+      renderAll();
+      await reloadFromFile();    // tries IndexedDB first; otherwise pings channel
+      updateAutosaveState();
+      requestHandle();           // ask other tabs for a handle if IndexedDB empty
+    })();
+  </script>
+</body>
+</html>

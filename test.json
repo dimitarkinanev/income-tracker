@@ -1,0 +1,75 @@
+{
+  "type": "horizontalBar",
+  "data": {
+    "labels": ["Andre Kreischer", "Jazmin Montero", "Jeancarlo Ramos", "Nikolay Andonov", "Pablo Covani", "Ralina Georgieva"],
+    "datasets": [
+      {
+        "label": "Hours",
+        "data": ["& Andre.Selected.TrackedCapacity &","& Jazmin.Selected.TrackedCapacity &","& Jeancarlo.Selected.TrackedCapacity &","& Nikolay.Selected.TrackedCapacity &","& Pablo.Selected.TrackedCapacity &","& Ralina.Selected.TrackedCapacity &"],
+        "backgroundColor": "rgba(54, 162, 235, 0.6)"
+      },
+      {
+        "label": "Capacity",
+        "type": "scatter",
+        "data": [
+          { "x": "& Andre.Selected.AvailableCapacity &", "y": "Andre Kreischer" },
+          { "x": "& Jazmin.Selected.AvailableCapacity &", "y": "Jazmin Montero" },
+          { "x": "& Jeancarlo.Selected.AvailableCapacity &", "y": "Jeancarlo Ramos" },
+          { "x": "& Nikolay.Selected.AvailableCapacity &", "y": "Nikolay Andonov" },
+          { "x": "& Pablo.Selected.AvailableCapacity &", "y": "Pablo Covani" },
+          { "x": "& Ralina.Selected.AvailableCapacity &", "y": "Ralina Georgieva" }
+        ],
+        "pointStyle": "rectRot",
+        "pointRadius": 7,
+        "borderColor": "rgba(255, 99, 132, 1)",
+        "backgroundColor": "rgba(255, 99, 132, 1)"
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "legend": {
+      "labels": {
+        "fontSize": 35,
+        "fontFamily": "Arial"
+      }
+    },
+    "title": {
+      "display": true,
+      "text": "Capacity - current sprint",
+      "fontSize": 35,
+      "fontFamily": "Arial"
+    },
+    "scales": {
+      "xAxes": [
+        {
+          "ticks": {
+            "beginAtZero": true,
+            "fontSize": 35,
+            "fontFamily": "Arial"
+          },
+          "scaleLabel": {
+            "display": false,
+            "labelString": "Hours",
+            "fontSize": 35,
+            "fontFamily": "Arial"
+          }
+        }
+      ],
+      "yAxes": [
+        {
+          "ticks": {
+            "fontSize": 35,
+            "fontFamily": "Arial"
+          },
+          "scaleLabel": {
+            "display": false,
+            "labelString": "People",
+            "fontSize": 35,
+            "fontFamily": "Arial"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tracker — Calendar</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { height:100%; margin:0; }
+  :root {
+    --accent:#111827; --line:#111827; --text:#111827;
+    --bg:#ffffff; --panel:#ffffff; --button-glow:rgba(173,216,230,0.8);
+
+    --title-font-size:20px; --th-font-size:14px; --td-font-size:14px; --icon-size:18px;
+  }
+
+  body {
+    font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+    background:var(--bg); color:var(--text);
+    margin:0;
+    padding:0 6% 40px;
+  }
+
+  /* Top bar */
+  .topbar {
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+    padding:10px 0; border-bottom:3px solid var(--line);
+    position:sticky; top:0; z-index:10; background:var(--panel);
+  }
+  .nav-left, .nav-right { display:flex; gap:8px; flex-wrap:wrap; }
+
+  /* Buttons (glow + enlarge on hover) */
+  .nav-btn, .settings-btn, .btn, .icon-btn {
+    padding:6px 10px; font-size:14px;
+    border-radius:10px; border:3px solid var(--line);
+    background:#fff; color:var(--text); cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 0 12px var(--button-glow);
+  }
+  .nav-btn:hover, .settings-btn:hover, .btn:hover, .icon-btn:hover {
+    transform:scale(1.08);
+    box-shadow:0 0 0 3px var(--button-glow), 0 6px 18px -6px rgba(0,0,0,0.15);
+  }
+  .icon-btn { width:calc(var(--icon-size)+6px); height:calc(var(--icon-size)+6px);
+              display:inline-flex; align-items:center; justify-content:center; }
+
+  h1.page-title { text-align:center; margin:24px 0; font-weight:800; font-size:24px; }
+
+  /* Filter controls */
+  .filter-controls {
+    display:flex; justify-content:center; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;
+  }
+  .filter-controls select, .filter-controls input[type="number"] {
+    padding:6px 8px; font-size:14px;
+    border-radius:10px; border:3px solid var(--line); background:#fff; color:#111827;
+  }
+
+  /* Cards */
+  .cards { display:grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap:14px; margin-bottom:18px; }
+  @media (max-width:1000px){ .cards { grid-template-columns:1fr; } }
+  .card { background:var(--panel); border:3px solid var(--line); border-radius:14px; padding:12px; }
+  .card-header { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px; }
+  .card-title { font-size:var(--title-font-size); font-weight:700; }
+
+  /* Item rows */
+  .item-row { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(17,24,39,0.1); }
+  .item-row:last-child { border-bottom:none; }
+  .item-label { font-weight:600; }
+  .item-amount { font-weight:700; }
+  .empty-hint { opacity:.7; font-style:italic; padding:6px 0; }
+
+  /* Summary */
+  .summary-row { display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+  @media (max-width:1000px){ .summary-row { grid-template-columns:1fr; } }
+  .summary-field {
+    width:100%; text-align:center; font-weight:800; color:#fff;
+    border:3px solid; border-radius:10px;
+    padding:10px; height:42px; line-height:22px;
+    box-sizing:border-box;
+  }
+  #totalIncome { background:#3C7D22; border-color:#1f3f11; }
+  #totalExpenses { background:#FFC000; border-color:#806000; color:#111; }
+  #totalPersonal { background:#782170; border-color:#4a133f; }
+
+  /* Modals unified with Calendar */
+  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.25); display:none; align-items:flex-start; justify-content:center; z-index:30; overflow:auto; padding:40px 20px; }
+  .modal { background:#fff; border:3px solid var(--line); border-radius:14px; width:90%; max-width:900px; margin:0 auto; padding:16px; max-height:90vh; overflow:auto; }
+  .modal h3 { margin:0 0 12px; font-size:18px; }
+  .section { margin-bottom:12px; }
+  .chip { border:2px solid #FFC000; border-radius:999px; padding:4px 8px; font-size:13px; background:#fff; display:inline-flex; gap:6px; }
+  .nowrap-btn, .nowrap-chip { white-space:nowrap; }
+
+  .form-row { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:12px; }
+</style>
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="nav-left">
+      <button class="nav-btn active">Tracker</button>
+      <button class="nav-btn" onclick="window.location.href='calendar.html'">Calendar</button>
+    </div>
+    <div class="nav-right">
+      <button class="settings-btn" id="openSettings">Settings</button>
+    </div>
+  </div>
+
+  <h1 class="page-title">Tracker</h1>
+
+  <!-- Month/Year filter controls -->
+  <div class="filter-controls">
+    <label>Month
+      <select id="filterMonth"></select>
+    </label>
+    <label>Year
+      <input id="filterYear" type="number" min="1900" max="2100" />
+    </label>
+    <button class="btn" id="applyFilterBtn">Apply</button>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Income</div></div>
+      <div id="incomeCard"></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Expenses</div></div>
+      <div id="expensesCard"></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Personal</div></div>
+      <div id="personalCard"></div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="card">
+    <div class="card-header"><div class="card-title">Summary</div></div>
+    <div class="summary-row">
+      <input id="totalIncome" class="summary-field" readonly />
+      <input id="totalExpenses" class="summary-field" readonly />
+      <input id="totalPersonal" class="summary-field" readonly />
+    </div>
+  </div>
+
+  <!-- Settings modal -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3>Settings</h3>
+        <button class="icon-btn" id="closeSettings">✕</button>
+      </div>
+
+      <div class="section">
+        <strong>File binding:</strong>
+        <div class="form-row" style="margin-top:8px">
+          <button class="btn" id="bindFileBtn">Load JSON file</button>
+          <button class="btn" id="reloadFileBtn">Reload from file</button>
+          <span class="chip">Status: <span id="fileStatus">not bound</span></span>
+        </div>
+        <p style="opacity:.8;margin-top:6px">
+          Bind tracker.json once. If empty, the app initializes the schema. Autosave updates without wiping existing content.
+        </p>
+      </div>
+
+      <div class="section">
+        <strong>Navigation:</strong>
+        <div class="form-row" style="margin-top:8px">
+          <input id="newNavLabel" class="input" placeholder="Button label (e.g., Reports)" />
+          <input id="newNavUrl" class="input" placeholder="URL (e.g., https://example.com/reports)" />
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:nowrap;">
+          <button class="btn nowrap-btn" id="addNavBtn">Add Nav Button</button>
+          <span class="chip nowrap-chip">Right-click a nav button to edit or delete</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <strong>UI sizes:</strong>
+        <div class="form-row" style="margin-top:8px">
+          <div>
+            <label>Card title size</label>
+            <input id="fsTitle" class="input" type="number" min="12" max="36" step="1" value="20" />
+          </div>
+          <div>
+            <label>Table header size</label>
+            <input id="fsTh" class="input" type="number" min="10" max="24" step="1" value="14" />
+          </div>
+          <div>
+            <label>Table cell size</label>
+            <input id="fsTd" class="input" type="number" min="10" max="24" step="1" value="14" />
+          </div>
+          <div>
+            <label>Icon size</label>
+            <input id="fsIcon" class="input" type="number" min="12" max="32" step="1" value="18" />
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:8px">
+          <button class="btn" id="applyUiSizes">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ===== Shared persistence (safe merge into tracker.json) ===== */
+const DB_NAME = 'tracker-db';
+const DB_STORE = 'file-handles';
+
+function idbOpen() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(DB_STORE)) db.createObjectStore(DB_STORE);
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+async function idbGet(key) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(DB_STORE, 'readonly'); const store = tx.objectStore(DB_STORE);
+    const req = store.get(key);
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+async function idbSet(key, value) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(DB_STORE, 'readwrite'); const store = tx.objectStore(DB_STORE);
+    const req = store.put(value, key);
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(req.error);
+  });
+}
+
+const defaultData = {
+  version: 1,
+  ui: { fontSizes: { title: 20, th: 14, td: 14, icon: 18 } },
+  nav: [{ label: 'Home', url: '#', id: 'home' }],
+  filter: { month: new Date().getMonth()+1, year: new Date().getFullYear() },
+  entries: { income: [], expenses: [], personal: [] }, // Tracker
+  events: [],                                          // Calendar (kept for shared schema)
+  vacationAllowance: {},                               // Calendar
+  meta: { notes: '' }
+};
+
+function ensureCoreStructures(obj) {
+  obj.ui ||= defaultData.ui;
+  obj.nav ||= [{label:'Home',url:'#',id:'home'}];
+  obj.filter ||= { month: new Date().getMonth()+1, year: new Date().getFullYear() };
+  obj.entries ||= { income: [], expenses: [], personal: [] };
+  obj.events ||= [];
+  obj.vacationAllowance ||= {};
+  obj.meta ||= { notes: '' };
+  return obj;
+}
+function deepMerge(target, source) {
+  Object.keys(source || {}).forEach(key => {
+    const sv = source[key];
+    if (sv && typeof sv === 'object' && !Array.isArray(sv)) {
+      target[key] ||= {};
+      deepMerge(target[key], sv);
+    } else {
+      target[key] = sv;
+    }
+  });
+}
+async function writeFile(fileHandle, obj) {
+  const writable = await fileHandle.createWritable();
+  await writable.write(JSON.stringify(obj, null, 2));
+  await writable.close();
+}
+async function reloadFromFile(fileHandle, dataRef) {
+  const file = await fileHandle.getFile();
+  const text = await file.text();
+  let parsed; try { parsed = JSON.parse(text || '{}'); } catch { parsed = {}; }
+  if (!parsed || Object.keys(parsed).length === 0) {
+    parsed = structuredClone(defaultData);
+    await writeFile(fileHandle, parsed);
+  }
+  const merged = ensureCoreStructures(structuredClone(defaultData));
+  deepMerge(merged, parsed);
+  Object.assign(dataRef, merged);
+}
+async function saveToFile(fileHandle, dataRef, renderFn=null) {
+  if (!fileHandle) return;
+  try {
+    const file = await fileHandle.getFile();
+    const currentText = await file.text().catch(()=> '{}');
+    let current = {};
+    try { current = JSON.parse(currentText || '{}'); } catch { current = {}; }
+    current = ensureCoreStructures(current);
+
+    const merged = structuredClone(current);
+    deepMerge(merged, dataRef);
+
+    await writeFile(fileHandle, merged);
+    if (typeof renderFn === 'function') renderFn();
+  } catch (e) { console.error('Autosave failed', e); }
+}
+
+/* ===== Page state ===== */
+const monthNamesLong = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+let data = structuredClone(defaultData);
+let fileHandle = null;
+let autosaveEnabled = false;
+
+/* ===== UI font sizes sync ===== */
+function applyFontSizes(fs) {
+  const r = document.documentElement;
+  r.style.setProperty('--title-font-size', fs.title + 'px');
+  r.style.setProperty('--th-font-size', fs.th + 'px');
+  r.style.setProperty('--td-font-size', fs.td + 'px');
+  r.style.setProperty('--icon-size', fs.icon + 'px');
+}
+function hydrateUI() {
+  const fs = data.ui?.fontSizes || { title:20, th:14, td:14, icon:18 };
+  document.getElementById('fsTitle').value = fs.title;
+  document.getElementById('fsTh').value = fs.th;
+  document.getElementById('fsTd').value = fs.td;
+  document.getElementById('fsIcon').value = fs.icon;
+  applyFontSizes(fs);
+}
+
+/* ===== Filter controls ===== */
+function hydrateFilters() {
+  const monthSel = document.getElementById('filterMonth');
+  const yearInput = document.getElementById('filterYear');
+  monthSel.innerHTML = '';
+  monthNamesLong.forEach((mn, idx) => {
+    const opt = document.createElement('option'); opt.value = String(idx+1); opt.textContent = mn;
+    monthSel.appendChild(opt);
+  });
+  monthSel.value = String(data.filter.month);
+  yearInput.value = String(data.filter.year);
+}
+document.getElementById('applyFilterBtn').addEventListener('click', () => {
+  const m = Number(document.getElementById('filterMonth').value);
+  const y = Number(document.getElementById('filterYear').value);
+  if (!m || !y) return;
+  data.filter.month = m;
+  data.filter.year = y;
+  saveToFile(fileHandle, data, renderAll);
+});
+
+/* ===== Settings modal ===== */
+function updateAutosaveState(){
+  const fs = document.getElementById('fileStatus'); if (fs) fs.textContent = autosaveEnabled ? 'bound' : 'not bound';
+}
+document.getElementById('openSettings').addEventListener('click', () => {
+  document.getElementById('settingsModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+});
+document.getElementById('closeSettings').addEventListener('click', () => {
+  document.getElementById('settingsModal').style.display = 'none';
+  document.body.style.overflow = '';
+});
+document.getElementById('bindFileBtn')?.addEventListener('click', async () => {
+  try {
+    const [fh] = await window.showOpenFilePicker({
+      types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+      multiple: false
+    });
+    fileHandle = fh;
+    await idbSet('trackerFileHandle', fileHandle);
+    autosaveEnabled = true;
+    await reloadFromFile(fileHandle, data);
+    updateAutosaveState();
+    hydrateFilters();
+    renderAll();
+  } catch (e) {}
+});
+document.getElementById('reloadFileBtn')?.addEventListener('click', async () => {
+  if (!fileHandle) { const stored = await idbGet('trackerFileHandle'); if (stored) fileHandle = stored; }
+  if (!fileHandle) { alert('No file bound yet. Use "Load JSON file".'); return; }
+  await reloadFromFile(fileHandle, data);
+  hydrateFilters();
+  renderAll();
+});
+
+/* ===== Settings UI sizes ===== */
+document.getElementById('applyUiSizes').addEventListener('click', () => {
+  const fs = {
+    title: Number(document.getElementById('fsTitle').value || 20),
+    th: Number(document.getElementById('fsTh').value || 14),
+    td: Number(document.getElementById('fsTd').value || 14),
+    icon: Number(document.getElementById('fsIcon').value || 18)
+  };
+  data.ui.fontSizes = fs;
+  applyFontSizes(fs);
+  saveToFile(fileHandle, data, renderAll);
+});
+
+/* ===== Navigation management (Settings) ===== */
+document.getElementById('addNavBtn')?.addEventListener('click', () => {
+  const label = document.getElementById('newNavLabel').value.trim();
+  const url = document.getElementById('newNavUrl').value.trim();
+  if (!label) { alert('Provide a label'); return; }
+  data.nav.push({ label, url: url || '#', id: crypto.randomUUID() });
+  saveToFile(fileHandle, data, () => {});
+  document.getElementById('newNavLabel').value = '';
+  document.getElementById('newNavUrl').value = '';
+});
+
+/* ===== Tracker rendering ===== */
+function filterEntriesByMonthYear(entries, month, year) {
+  return (entries || []).filter(e => {
+    if (!e || !e.date) return false;
+    const d = new Date(e.date);
+    return d.getMonth()+1 === month && d.getFullYear() === year;
+  });
+}
+function renderCardItems(cardId, items) {
+  const container = document.getElementById(cardId);
+  container.innerHTML = '';
+  if (!items || items.length === 0) {
+    const hint = document.createElement('div');
+    hint.className = 'empty-hint';
+    hint.textContent = 'No items for this month';
+    container.appendChild(hint);
+    return;
+  }
+  items.forEach(e => {
+    const row = document.createElement('div');
+    row.className = 'item-row';
+    const amount = (typeof e.amount === 'number') ? e.amount : parseFloat(e.amount || '0');
+    row.innerHTML = `
+      <span class="item-label">${e.label ?? ''}</span>
+      <span class="item-amount">${isNaN(amount) ? '' : amount}</span>
+    `;
+    container.appendChild(row);
+  });
+}
+function sumAmounts(items) {
+  return items.reduce((acc, e) => {
+    const v = (typeof e.amount === 'number') ? e.amount : parseFloat(e.amount || '0');
+    return acc + (isNaN(v) ? 0 : v);
+  }, 0);
+}
+function renderTracker() {
+  const m = data.filter.month, y = data.filter.year;
+
+  const inc = filterEntriesByMonthYear(data.entries.income, m, y);
+  const exp = filterEntriesByMonthYear(data.entries.expenses, m, y);
+  const per = filterEntriesByMonthYear(data.entries.personal, m, y);
+
+  renderCardItems('incomeCard', inc);
+  renderCardItems('expensesCard', exp);
+  renderCardItems('personalCard', per);
+
+  document.getElementById('totalIncome').value   = sumAmounts(inc);
+  document.getElementById('totalExpenses').value = sumAmounts(exp);
+  document.getElementById('totalPersonal').value = sumAmounts(per);
+}
+
+/* ===== Render all ===== */
+function renderAll(){ renderTracker(); }
+
+/* ===== Init ===== */
+window.addEventListener('load', async () => {
+  const stored = await idbGet('trackerFileHandle');
+  if (stored) { fileHandle = stored; autosaveEnabled = true; updateAutosaveState(); await reloadFromFile(fileHandle, data); }
+  hydrateUI();
+  hydrateFilters();
+  renderAll();
+});
+</script>
+</body>
+</html>
